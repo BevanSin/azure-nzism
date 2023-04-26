@@ -1,5 +1,5 @@
 # Set the path to the input CSV file
-$csvpath = "C:\Repos\azure-nzism\controls.csv"
+$csvpath = "C:\Repos\azure-nzism\csv\controls.csv"
 
 #outputfile
 $jsonPath = "C:\Repos\azure-nzism\json\controls.json"

@@ -1,0 +1,722 @@
+{ "parameters": {
+    "effect-af35e2a4-ef96-44e7-a9ae-853dd97032c4": {
+      "type": "String",
+      "metadata": {
+        "displayName": "Effect for policy: Azure Spring Cloud should use network injection",
+        "description": "The effect determines what happens when the policy rule is evaluated to match; for more information about effects, visit https://aka.ms/policyeffects"
+      },
+      "allowedValues": [
+        "Audit",
+        "Disabled",
+        "Deny"
+      ],
+      "defaultValue": "Audit"
+    },
+    "effect-2154edb9-244f-4741-9970-660785bccdaa": {
+      "type": "String",
+      "metadata": {
+        "displayName": "Effect for policy: VM Image Builder templates should use private link",
+        "description": "The effect determines what happens when the policy rule is evaluated to match; for more information about effects, visit https://aka.ms/policyeffects"
+      },
+      "allowedValues": [
+        "Audit",
+        "Disabled",
+        "Deny"
+      ],
+      "defaultValue": "Audit"
+    },
+    "effect-cee51871-e572-4576-855c-047c820360f0": {
+      "type": "string",
+      "metadata": {
+        "displayName": "Effect for policy: Certificates using RSA cryptography should have the specified minimum key size",
+        "description": "The effect determines what happens when the policy rule is evaluated to match; for more information about effects, visit https://aka.ms/policyeffects"
+      },
+      "allowedValues": [
+        "Audit",
+        "Deny",
+        "Disabled"
+      ],
+      "defaultValue": "Audit"
+    },
+    "effect-152b15f7-8e1f-4c1f-ab71-8c010ba5dbc0": {
+      "type": "String",
+      "metadata": {
+        "displayName": "Effect for policy: Key Vault keys should have an expiration date",
+        "description": "The effect determines what happens when the policy rule is evaluated to match; for more information about effects, visit https://aka.ms/policyeffects"
+      },
+      "allowedValues": [
+        "Audit",
+        "Deny",
+        "Disabled"
+      ],
+      "defaultValue": "Audit"
+    },
+    "effect-98728c90-32c7-4049-8429-847dc0f4fe37": {
+      "type": "String",
+      "metadata": {
+        "displayName": "Effect for policy: Key Vault secrets should have an expiration date",
+        "description": "The effect determines what happens when the policy rule is evaluated to match; for more information about effects, visit https://aka.ms/policyeffects"
+      },
+      "allowedValues": [
+        "Audit",
+        "Deny",
+        "Disabled"
+      ],
+      "defaultValue": "Audit"
+    },
+    "effect-423dd1ba-798e-40e4-9c4d-b6902674b423": {
+      "type": "String",
+      "metadata": {
+        "displayName": "Effect for policy: Kubernetes clusters should disable automounting API credentials",
+        "description": "The effect determines what happens when the policy rule is evaluated to match; for more information about effects, visit https://aka.ms/policyeffects"
+      },
+      "allowedValues": [
+        "Audit",
+        "Deny",
+        "Disabled"
+      ],
+      "defaultValue": "Audit"
+    },
+    "effect-9f061a12-e40d-4183-a00e-171812443373": {
+      "type": "String",
+      "metadata": {
+        "displayName": "Effect for policy: Kubernetes clusters should not use the default namespace",
+        "description": "The effect determines what happens when the policy rule is evaluated to match; for more information about effects, visit https://aka.ms/policyeffects"
+      },
+      "allowedValues": [
+        "Audit",
+        "Deny",
+        "Disabled"
+      ],
+      "defaultValue": "Audit"
+    },
+    "effect-47a1ee2f-2a2a-4576-bf2a-e0e36709c2b8": {
+      "type": "String",
+      "metadata": {
+        "displayName": "Effect for policy: Kubernetes cluster containers should not share host process ID or host IPC namespace",
+        "description": "The effect determines what happens when the policy rule is evaluated to match; for more information about effects, visit https://aka.ms/policyeffects"
+      },
+      "allowedValues": [
+        "Audit",
+        "Deny",
+        "Disabled"
+      ],
+      "defaultValue": "Audit"
+    },
+    "effect-1a5b4dca-0b6f-4cf5-907c-56316bc1bf3d": {
+      "type": "String",
+      "metadata": {
+        "displayName": "Effect for policy: Kubernetes clusters should be accessible only over HTTPS",
+        "description": "The effect determines what happens when the policy rule is evaluated to match; for more information about effects, visit https://aka.ms/policyeffects"
+      },
+      "allowedValues": [
+        "Audit",
+        "Deny",
+        "Disabled"
+      ],
+      "defaultValue": "Audit"
+    },
+    "effect-df49d893-a74c-421d-bc95-c663042e5b80": {
+      "type": "String",
+      "metadata": {
+        "displayName": "Effect for policy: Kubernetes cluster containers should run with a read only root file system",
+        "description": "The effect determines what happens when the policy rule is evaluated to match; for more information about effects, visit https://aka.ms/policyeffects"
+      },
+      "allowedValues": [
+        "Audit",
+        "Deny",
+        "Disabled"
+      ],
+      "defaultValue": "Audit"
+    },
+    "effect-c39ba22d-4428-4149-b981-70acb31fc383": {
+      "type": "String",
+      "metadata": {
+        "displayName": "Effect for policy: Azure Key Vault Managed HSM should have purge protection enabled",
+        "description": "The effect determines what happens when the policy rule is evaluated to match; for more information about effects, visit https://aka.ms/policyeffects"
+      },
+      "allowedValues": [
+        "Audit",
+        "Deny",
+        "Disabled"
+      ],
+      "defaultValue": "Audit"
+    },
+    "effect-055aa869-bc98-4af8-bafc-23f1ab6ffe2c": {
+      "type": "String",
+      "metadata": {
+        "displayName": "Effect for policy: Azure Web Application Firewall should be enabled for Azure Front Door entry-points",
+        "description": "The effect determines what happens when the policy rule is evaluated to match; for more information about effects, visit https://aka.ms/policyeffects"
+      },
+      "allowedValues": [
+        "Audit",
+        "Deny",
+        "Disabled"
+      ],
+      "defaultValue": "Audit"
+    },
+    "effect-425bea59-a659-4cbb-8d31-34499bd030b8": {
+      "type": "String",
+      "metadata": {
+        "displayName": "Effect for policy: Web Application Firewall (WAF) should use the specified mode for Azure Front Door Service",
+        "description": "The effect determines what happens when the policy rule is evaluated to match; for more information about effects, visit https://aka.ms/policyeffects"
+      },
+      "allowedValues": [
+        "Audit",
+        "Deny",
+        "Disabled"
+      ],
+      "defaultValue": "Audit"
+    },
+    "effect-ba769a63-b8cc-4b2d-abf6-ac33c7204be8": {
+      "type": "String",
+      "metadata": {
+        "displayName": "Effect for policy: Azure Machine Learning workspaces should be encrypted with a customer-managed key",
+        "description": "The effect determines what happens when the policy rule is evaluated to match; for more information about effects, visit https://aka.ms/policyeffects"
+      },
+      "allowedValues": [
+        "Audit",
+        "Deny",
+        "Disabled"
+      ],
+      "defaultValue": "Audit"
+    },
+    "effect-5b9159ae-1701-4a6f-9a7a-aa9c8ddd0580": {
+      "type": "string",
+      "metadata": {
+        "displayName": "Effect for policy: Container registries should be encrypted with a customer-managed key",
+        "description": "The effect determines what happens when the policy rule is evaluated to match; for more information about effects, visit https://aka.ms/policyeffects"
+      },
+      "allowedValues": [
+        "Audit",
+        "Deny",
+        "Disabled"
+      ],
+      "defaultValue": "Audit"
+    },
+    "effect-d0793b48-0edc-4296-a390-4c75d1bdfd71": {
+      "type": "String",
+      "metadata": {
+        "displayName": "Effect for policy: Container registries should not allow unrestricted network access",
+        "description": "The effect determines what happens when the policy rule is evaluated to match; for more information about effects, visit https://aka.ms/policyeffects"
+      },
+      "allowedValues": [
+        "Audit",
+        "Deny",
+        "Disabled"
+      ],
+      "defaultValue": "Audit"
+    },
+    "effect-3657f5a0-770e-44a3-b44e-9431ba1e9735": {
+      "type": "string",
+      "metadata": {
+        "displayName": "Effect for policy: Automation account variables should be encrypted",
+        "description": "The effect determines what happens when the policy rule is evaluated to match; for more information about effects, visit https://aka.ms/policyeffects"
+      },
+      "allowedValues": [
+        "Audit",
+        "Deny",
+        "Disabled"
+      ],
+      "defaultValue": "Audit"
+    },
+    "effect-67121cc7-ff39-4ab8-b7e3-95b84dab487d": {
+      "type": "string",
+      "metadata": {
+        "displayName": "Effect for policy: Cognitive Services accounts should enable data encryption with a customer-managed key",
+        "description": "The effect determines what happens when the policy rule is evaluated to match; for more information about effects, visit https://aka.ms/policyeffects"
+      },
+      "allowedValues": [
+        "Audit",
+        "Deny",
+        "Disabled"
+      ],
+      "defaultValue": "Audit"
+    },
+    "effect-0725b4dd-7e76-479c-a735-68e7ee23d5ca": {
+      "type": "string",
+      "metadata": {
+        "displayName": "Effect for policy: Cognitive Services accounts should disable public network access",
+        "description": "The effect determines what happens when the policy rule is evaluated to match; for more information about effects, visit https://aka.ms/policyeffects"
+      },
+      "allowedValues": [
+        "Audit",
+        "Deny",
+        "Disabled"
+      ],
+      "defaultValue": "Audit"
+    },
+    "effect-037eea7a-bd0a-46c5-9a66-03aea78705d3": {
+      "type": "string",
+      "metadata": {
+        "displayName": "Effect for policy: Cognitive Services accounts should restrict network access",
+        "description": "The effect determines what happens when the policy rule is evaluated to match; for more information about effects, visit https://aka.ms/policyeffects"
+      },
+      "allowedValues": [
+        "Audit",
+        "Deny",
+        "Disabled"
+      ],
+      "defaultValue": "Audit"
+    },
+    "effect-1f905d99-2ab7-462c-a6b0-f709acca6c8f": {
+      "type": "String",
+      "metadata": {
+        "displayName": "Effect for policy: Azure Cosmos DB accounts should use customer-managed keys to encrypt data at rest",
+        "description": "The effect determines what happens when the policy rule is evaluated to match; for more information about effects, visit https://aka.ms/policyeffects"
+      },
+      "allowedValues": [
+        "Audit",
+        "Deny",
+        "Disabled"
+      ],
+      "defaultValue": "Audit"
+    },
+    "effect-862e97cf-49fc-4a5c-9de4-40d4e2e7c8eb": {
+      "type": "String",
+      "metadata": {
+        "displayName": "Effect for policy: Azure Cosmos DB accounts should have firewall rules",
+        "description": "The effect determines what happens when the policy rule is evaluated to match; for more information about effects, visit https://aka.ms/policyeffects"
+      },
+      "allowedValues": [
+        "Audit",
+        "Deny",
+        "Disabled"
+      ],
+      "defaultValue": "Audit"
+    },
+    "effect-0b60c0b2-2dc2-4e1c-b5c9-abbed971de53": {
+      "type": "String",
+      "metadata": {
+        "displayName": "Effect for policy: Key vaults should have purge protection enabled",
+        "description": "The effect determines what happens when the policy rule is evaluated to match; for more information about effects, visit https://aka.ms/policyeffects"
+      },
+      "allowedValues": [
+        "Audit",
+        "Deny",
+        "Disabled"
+      ],
+      "defaultValue": "Audit"
+    },
+    "effect-1e66c121-a66a-4b1f-9b83-0fd99bf0fc2d": {
+      "type": "String",
+      "metadata": {
+        "displayName": "Effect for policy: Key vaults should have soft delete enabled",
+        "description": "The effect determines what happens when the policy rule is evaluated to match; for more information about effects, visit https://aka.ms/policyeffects"
+      },
+      "allowedValues": [
+        "Audit",
+        "Deny",
+        "Disabled"
+      ],
+      "defaultValue": "Audit"
+    },
+    "effect-22bee202-a82f-4305-9a2a-6d7f44d4dedb": {
+      "type": "string",
+      "metadata": {
+        "displayName": "Effect for policy: Only secure connections to your Azure Cache for Redis should be enabled",
+        "description": "The effect determines what happens when the policy rule is evaluated to match; for more information about effects, visit https://aka.ms/policyeffects"
+      },
+      "allowedValues": [
+        "Audit",
+        "Deny",
+        "Disabled"
+      ],
+      "defaultValue": "Audit"
+    },
+    "effect-ac01ad65-10e5-46df-bdd9-6b0cad13e1d2": {
+      "type": "String",
+      "metadata": {
+        "displayName": "Effect for policy: SQL managed instances should use customer-managed keys to encrypt data at rest",
+        "description": "The effect determines what happens when the policy rule is evaluated to match; for more information about effects, visit https://aka.ms/policyeffects"
+      },
+      "allowedValues": [
+        "Audit",
+        "Deny",
+        "Disabled"
+      ],
+      "defaultValue": "Audit"
+    },
+    "effect-0a370ff3-6cab-4e85-8995-295fd854c5b8": {
+      "type": "String",
+      "metadata": {
+        "displayName": "Effect for policy: SQL servers should use customer-managed keys to encrypt data at rest",
+        "description": "The effect determines what happens when the policy rule is evaluated to match; for more information about effects, visit https://aka.ms/policyeffects"
+      },
+      "allowedValues": [
+        "Audit",
+        "Deny",
+        "Disabled"
+      ],
+      "defaultValue": "Audit"
+    },
+    "effect-1b8ca024-1d5c-4dec-8995-b1a932b41780": {
+      "type": "String",
+      "metadata": {
+        "displayName": "Effect for policy: Public network access on Azure SQL Database should be disabled",
+        "description": "The effect determines what happens when the policy rule is evaluated to match; for more information about effects, visit https://aka.ms/policyeffects"
+      },
+      "allowedValues": [
+        "Audit",
+        "Deny",
+        "Disabled"
+      ],
+      "defaultValue": "Audit"
+    },
+    "effect-044985bb-afe1-42cd-8a36-9d5d42424537": {
+      "type": "String",
+      "metadata": {
+        "displayName": "Effect for policy: Storage account keys should not be expired",
+        "description": "The effect determines what happens when the policy rule is evaluated to match; for more information about effects, visit https://aka.ms/policyeffects"
+      },
+      "allowedValues": [
+        "Audit",
+        "Deny",
+        "Disabled"
+      ],
+      "defaultValue": "Audit"
+    },
+    "effect-2a1a9cdf-e04d-429a-8416-3bfb72a1b26f": {
+      "type": "String",
+      "metadata": {
+        "displayName": "Effect for policy: Storage accounts should restrict network access using virtual network rules",
+        "description": "The effect determines what happens when the policy rule is evaluated to match; for more information about effects, visit https://aka.ms/policyeffects"
+      },
+      "allowedValues": [
+        "Audit",
+        "Deny",
+        "Disabled"
+      ],
+      "defaultValue": "Audit"
+    },
+    "effect-d2e7ea85-6b44-4317-a0be-1b951587f626": {
+      "type": "String",
+      "metadata": {
+        "displayName": "Effect for policy: Kubernetes clusters should not grant CAP_SYS_ADMIN security capabilities",
+        "description": "The effect determines what happens when the policy rule is evaluated to match; for more information about effects, visit https://aka.ms/policyeffects"
+      },
+      "allowedValues": [
+        "Audit",
+        "Deny",
+        "Disabled"
+      ],
+      "defaultValue": "Audit"
+    },
+    "effect-95edb821-ddaf-4404-9732-666045e056b4": {
+      "type": "String",
+      "metadata": {
+        "displayName": "Effect for policy: Kubernetes cluster should not allow privileged containers",
+        "description": "The effect determines what happens when the policy rule is evaluated to match; for more information about effects, visit https://aka.ms/policyeffects"
+      },
+      "allowedValues": [
+        "Audit",
+        "Deny",
+        "Disabled"
+      ],
+      "defaultValue": "Audit"
+    },
+    "effect-1c6e92c9-99f0-4e55-9cf2-0c234dc48f99": {
+      "type": "String",
+      "metadata": {
+        "displayName": "Effect for policy: Kubernetes clusters should not allow container privilege escalation",
+        "description": "The effect determines what happens when the policy rule is evaluated to match; for more information about effects, visit https://aka.ms/policyeffects"
+      },
+      "allowedValues": [
+        "Audit",
+        "Deny",
+        "Disabled"
+      ],
+      "defaultValue": "Audit"
+    },
+    "effect-a1817ec0-a368-432a-8057-8371e17ac6ee": {
+      "type": "string",
+      "metadata": {
+        "displayName": "Effect for policy: All authorization rules except RootManageSharedAccessKey should be removed from Service Bus namespace",
+        "description": "The effect determines what happens when the policy rule is evaluated to match; for more information about effects, visit https://aka.ms/policyeffects"
+      },
+      "allowedValues": [
+        "Audit",
+        "Deny",
+        "Disabled"
+      ],
+      "defaultValue": "Audit"
+    },
+    "effect-b54ed75b-3e1a-44ac-a333-05ba39b99ff0": {
+      "type": "string",
+      "metadata": {
+        "displayName": "Effect for policy: Service Fabric clusters should only use Azure Active Directory for client authentication",
+        "description": "The effect determines what happens when the policy rule is evaluated to match; for more information about effects, visit https://aka.ms/policyeffects"
+      },
+      "allowedValues": [
+        "Audit",
+        "Deny",
+        "Disabled"
+      ],
+      "defaultValue": "Audit"
+    },
+    "effect-617c02be-7f02-4efd-8836-3180d47b6c68": {
+      "type": "string",
+      "metadata": {
+        "displayName": "Effect for policy: Service Fabric clusters should have the ClusterProtectionLevel property set to EncryptAndSign",
+        "description": "The effect determines what happens when the policy rule is evaluated to match; for more information about effects, visit https://aka.ms/policyeffects"
+      },
+      "allowedValues": [
+        "Audit",
+        "Deny",
+        "Disabled"
+      ],
+      "defaultValue": "Audit"
+    },
+    "effect-404c3081-a854-4457-ae30-26a93ef643f9": {
+      "type": "string",
+      "metadata": {
+        "displayName": "Effect for policy: Secure transfer to storage accounts should be enabled",
+        "description": "The effect determines what happens when the policy rule is evaluated to match; for more information about effects, visit https://aka.ms/policyeffects"
+      },
+      "allowedValues": [
+        "Audit",
+        "Deny",
+        "Disabled"
+      ],
+      "defaultValue": "Audit"
+    },
+    "effect-34c877ad-507e-4c82-993e-3452a6e0ad3c": {
+      "type": "string",
+      "metadata": {
+        "displayName": "Effect for policy: Storage accounts should restrict network access",
+        "description": "The effect determines what happens when the policy rule is evaluated to match; for more information about effects, visit https://aka.ms/policyeffects"
+      },
+      "allowedValues": [
+        "Audit",
+        "Deny",
+        "Disabled"
+      ],
+      "defaultValue": "Audit"
+    },
+    "effect-40cec1dd-a100-4920-b15b-3024fe8901ab": {
+      "type": "String",
+      "metadata": {
+        "displayName": "(Deprecated) Effect for policy: Azure Machine Learning workspaces should use private link",
+        "description": "This policy has been deprecated to remove a parameter's allowed value, replacement policy is 45e05259-1eb5-4f70-9574-baf73e9d219b.",
+        "deprecated": true
+      },
+      "allowedValues": [
+        "Audit",
+        "Deny",
+        "Disabled"
+      ],
+      "defaultValue": "Disabled"
+    },
+    "effect-45e05259-1eb5-4f70-9574-baf73e9d219b": {
+      "type": "String",
+      "defaultValue": "Audit",
+      "allowedValues": [
+        "Audit",
+        "Disabled"
+      ],
+      "metadata": {
+        "displayName": "Effect for policy: Azure Machine Learning workspaces should use private link",
+        "description": "The effect determines what happens when the policy rule is evaluated to match; for more information about effects, visit https://aka.ms/policyeffects"
+      }
+    },
+    "effect-564feb30-bf6a-4854-b4bb-0d2d2d1e6c66": {
+      "type": "String",
+      "metadata": {
+        "displayName": "Effect for policy: Web Application Firewall (WAF) should be enabled for Application Gateway",
+        "description": "The effect determines what happens when the policy rule is evaluated to match; for more information about effects, visit https://aka.ms/policyeffects"
+      },
+      "allowedValues": [
+        "Audit",
+        "Deny",
+        "Disabled"
+      ],
+      "defaultValue": "Audit"
+    },
+    "effect-12430be1-6cc8-4527-a9a8-e3d38f250096": {
+      "type": "String",
+      "metadata": {
+        "displayName": "Effect for policy: Web Application Firewall (WAF) should use the specified mode for Application Gateway",
+        "description": "The effect determines what happens when the policy rule is evaluated to match; for more information about effects, visit https://aka.ms/policyeffects"
+      },
+      "allowedValues": [
+        "Audit",
+        "Deny",
+        "Disabled"
+      ],
+      "defaultValue": "Audit"
+    },
+    "evaluatedSkuNames-af35e2a4-ef96-44e7-a9ae-853dd97032c4": {
+      "type": "Array",
+      "metadata": {
+        "displayName": "Azure Spring Cloud SKUs that should use network injection",
+        "description": "List of Azure Spring Cloud SKUs against which this policy will be evaluated."
+      },
+      "allowedValues": [
+        "Standard",
+        "Enterprise"
+      ],
+      "defaultValue": [
+        "Standard",
+        "Enterprise"
+      ]
+    },
+    "evaluatedSkuNames-ef619a2c-cc4d-4d03-b2ba-8c94a834d85b": {
+      "type": "Array",
+      "metadata": {
+        "displayName": "API Management SKUs that should use a virtual network",
+        "description": "List of API Management SKUs against which this policy will be evaluated."
+      },
+      "allowedValues": [
+        "Developer",
+        "Basic",
+        "Standard",
+        "Premium",
+        "Consumption"
+      ],
+      "defaultValue": [
+        "Developer",
+        "Premium"
+      ]
+    },
+    "excludedContainers": {
+      "type": "Array",
+      "metadata": {
+        "displayName": "Kubernetes containers excluded from evaluation of Kubernetes cluster policies in this initiative",
+        "description": "The list of InitContainers and Containers to exclude from policy evaluation. The list should use the container name. Use an empty list to apply this policy to all containers in all namespaces."
+      },
+      "defaultValue": []
+    },
+    "excludedImages": {
+      "type": "Array",
+      "metadata": {
+        "displayName": "Kubernetes container images excluded from evaluation of policies in this initiative",
+        "description": "The list of InitContainers and Containers to exclude from policy evaluation. The identifier is the image of container. Prefix-matching can be signified with `*`. For example: `myregistry.azurecr.io/istio:*`. It is recommended that users use the fully-qualified Docker image name (e.g. start with a domain name) in order to avoid unexpectedly exempting images from an untrusted repository."
+      },
+      "defaultValue": []
+    },
+    "excludedNamespaces": {
+      "type": "Array",
+      "metadata": {
+        "displayName": "Kubernetes namespaces excluded from evaluation of Kubernetes cluster policies in this initiative",
+        "description": "List of Kubernetes namespaces to exclude from policy evaluation. System namespaces 'kube-system', 'gatekeeper-system' and 'azure-arc' are always excluded by design."
+      },
+      "defaultValue": []
+    },
+    "includeAKSClusters-7c1b1214-f927-48bf-8882-84f0af6588b1": {
+      "type": "Boolean",
+      "metadata": {
+        "displayName": "Include AKS clusters when auditing if virtual machine scale set diagnostic logs are enabled",
+        "description": "For more information, visit https://aka.ms/kubepolicydoc",
+        "deprecated": true
+      },
+      "defaultValue": false
+    },
+    "IncludeArcMachines": {
+      "type": "string",
+      "metadata": {
+        "displayName": "Include Arc-connected servers when evaluating guest configuration policies",
+        "description": "By selecting 'true,' you agree to be charged monthly per Arc connected machine; for more information, visit https://aka.ms/policy-pricing"
+      },
+      "allowedValues": [
+        "true",
+        "false"
+      ],
+      "defaultValue": "false"
+    },
+    "labelSelector": {
+      "type": "object",
+      "metadata": {
+        "displayName": "Kubernetes label selector for resources included for evaluation of Kubernetes cluster policies in this initiative",
+        "description": "Label query to select Kubernetes resources to include for policy evaluation; an empty label selector will result in policies evaluated on all Kubernetes resources"
+      },
+      "defaultValue": {}
+    },
+    "minimumRSAKeySize-cee51871-e572-4576-855c-047c820360f0": {
+      "type": "Integer",
+      "metadata": {
+        "displayName": "Minimum RSA key size",
+        "description": "The minimum key size for RSA certificates."
+      },
+      "allowedValues": [
+        2048,
+        3072,
+        4096
+      ],
+      "defaultValue": 3072
+    },
+    "MinimumTLSVersion-5752e6d6-1206-46d8-8ab1-ecc2f71a8112": {
+      "type": "string",
+      "metadata": {
+        "displayName": "Minimum TLS version for Windows web servers",
+        "description": "The minimum TLS protocol version that should be enabled. Windows web servers with lower TLS versions will be marked as non-compliant."
+      },
+      "allowedValues": [
+        "1.1",
+        "1.2"
+      ],
+      "defaultValue": "1.2"
+    },
+    "modeRequirement-425bea59-a659-4cbb-8d31-34499bd030b8": {
+      "type": "String",
+      "metadata": {
+        "displayName": "Required mode for Web Application Firewall policies for Azure Front Door Service",
+        "description": "Mode required for all WAF policies"
+      },
+      "allowedValues": [
+        "Prevention",
+        "Detection"
+      ],
+      "defaultValue": "Detection"
+    },
+    "modeRequirement-12430be1-6cc8-4527-a9a8-e3d38f250096": {
+      "type": "String",
+      "metadata": {
+        "displayName": "Required mode for Web Application Firewall policies for Application Gateway",
+        "description": "Mode required for all WAF policies"
+      },
+      "allowedValues": [
+        "Prevention",
+        "Detection"
+      ],
+      "defaultValue": "Detection"
+    },
+    "namespaces": {
+      "type": "Array",
+      "metadata": {
+        "displayName": "Kubernetes namespaces included for evaluation of Kubernetes cluster policies in this initiative",
+        "description": "List of Kubernetes namespaces to (only) include for policy evaluation; an empty list will result in policies evaluated on all resources in all namespaces"
+      },
+      "defaultValue": []
+    },
+    "NotAvailableMachineState-bed48b13-6647-468e-aa2f-1af1d3f4dd40": {
+      "type": "string",
+      "metadata": {
+        "displayName": "Compliance status to report for Windows machines with OS versions where Windows Defender Exploit Guard is not available",
+        "description": "Windows Defender Exploit Guard is only available starting with Windows 10/Windows Server with update 1709. Setting this value to 'Non-Compliant' shows machines with older versions on which Windows Defender Exploit Guard is not available (such as Windows Server 2012 R2) as non-compliant. Setting this value to 'Compliant' shows these machines as compliant."
+      },
+      "allowedValues": [
+        "Compliant",
+        "Non-Compliant"
+      ],
+      "defaultValue": "Compliant"
+    },
+    "requiredRetentionDays": {
+      "type": "String",
+      "metadata": {
+        "displayName": "Required retention period (days) for resource logs"
+      },
+      "defaultValue": "365"
+    },
+    "setting-a6fb4358-5bf4-4ad7-ba82-2cd2f41ce5e9": {
+      "type": "String",
+      "metadata": {
+        "displayName": "Required auditing setting for SQL servers"
+      },
+      "allowedValues": [
+        "enabled",
+        "disabled"
+      ],
+      "defaultValue": "enabled"
+    }
+  }
+}
