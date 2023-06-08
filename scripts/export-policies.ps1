@@ -10,7 +10,6 @@ $policys = Get-AzPolicyDefinition | Select-Object Name,ResourceId -ExpandPropert
 # Create an array to store the results
 $results = @()
 
-# Export each policy to a JSON file
 foreach ($policy in $policys) {
     # GUID, DisplayName, Description, Category, Version, ResourceID
     # $policy = Get-AzPolicyDefinition -Id $policyid | Select-Object Name,ResourceId -ExpandProperty Properties

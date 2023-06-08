@@ -1,32 +1,82 @@
-# Set the path to the input CSV file
-$controlsjson = "C:\Repos\azure-nzism\json\controls.json"
-$policiescsv = "C:\Repos\azure-nzism\csv\policies.csv"
-$paramscsv = "C:\Repos\azure-nzism\csv\params.csv"
+# Define variables
+$policySetDefinitionName = "New Zealand ISM Restricted v3.6"
+$policySetDescription = "This initiative includes policies that address a subset of New Zealand Information Security Manual v3.6 controls. Additional policies will be added in upcoming releases. For more information, visit https://aka.ms/nzism-initiative. "
+#$policyGroupDelimiter = ";"
+$outputFilePath = "policysetdefinition.json"
+$initiativeVersion = "1.0.0"
+$initiativeCategory = "Regulatory Compliance"
+$parametersFilePath = "C:\Repos\azure-nzism\csv\params.csv"
+$policyFilePath = "C:\Repos\azure-nzism\csv\policies.csv"
+$controlsFilePath = "C:\Repos\azure-nzism\csv\controls.csv"
 
-#outputfiles
-$policysetPath = "C:\Repos\azure-nzism\json\policyset.json"
-$policysetdefPath = "C:\Repos\azure-nzism\json\policyset.definitions.json"
-$policysetparamsPath = "C:\Repos\azure-nzism\json\policyset.parameters.json"
+# Load policies from CSV file
+$controls = Import-Csv -Path $controlsFilePath
+
+# Load policies from CSV file
+$policies = Import-Csv -Path $policyFilePath
+
+# Load parameters from CSV file
+$parameters = Import-Csv -Path $parametersFilePath
 
 #Create parts of the initiative
+#properties - displayname, description, metadata-version, metadata-category, version
+#policydefinitiongroups = controls = groups = metadata
+#policyDefinitions = policies to include in initiative    
+#parameters - params for each policy
 
-# policyset.json ______________ # Initiative definition
-    #properties - displayname, description, metadata-version, metadata-category, version
-    #policydefinitiongroups = controls = groups = metadata
+# Create policy set definition
+$policySetDefinition = @{
+    "displayName" = $policySetDefinitionName
+    "description" = $policySetDescription
+    "metadata" = @{
+        "version" = $initiativeVersion
+        "category" = $initiativeCategory
+    }
+    "policyDefinitions" = @()
+}
+foreach ($policy in $policies) {
+    # Create policy parameters
+    $parametersForPolicy = $parameters | Where-Object { $_.PolicyName -eq $policy.Name }
+    $parametersHash = @{}
+    foreach ($parameter in $parametersForPolicy) {
+        $parameterName = $parameter.Name
+        $parameterGroup = $parameter.Group
+        $parametersHash.Add("$parameterGroup.$parameterName", @{
+            "type" = "String"
+            "metadata" = @{
+                "displayName" = $parameterName
+                "description" = "This is my $policy.DisplayName parameter $parameterName description."
+            }
+            "defaultValue" = $parameter.DefaultValue
+        })
+    }
+    # Create policy definition
+    $policyData = @{
+        "if" = @{
+            "not" = @{
+                "field" = "tags['Environment']"
+                "equals" = "Prod"
+            }
+        }
+        "then" = @{
+            "effect" = "deny"
+        }
+        "parameters" = $parametersHash
+        "metadata" = @{
+            "displayName" = $policy.DisplayName
+            "description" = $policy.Description
+        }
+    }
+    $policyDefinition = @{
+        "policyDefinitionId" = $policy.DefinitionId
+        "parameters" = $parametersHash
+    }
+    # Add policy definition to policy set definition
+    $policySetDefinition.policyDefinitions += $policyDefinition
+}
 
-# policyset.definitions.json __ # Initiative list of policies
-    #policyDefinitions = policies to include in initiative
+# Convert policy set definition to JSON and output to file
+$policySetDefinitionJson = ConvertTo-Json $policySetDefinition -Depth 100
+$policySetDefinitionJson | Out-File -Encoding utf8 $outputFilePath
 
-# policyset.parameters.json ___ # Initiative definition of parameters
-    #parameters - params for each policy
-
-# Import the CSV data as an array of objects with custom property names
-#$data = Import-Csv $csvPath | Select-Object @{Name='name';Expression={$_.name}}, @{Name='category';Expression={$_.category}}, @{Name='displayName';Expression={$_.displayName}}, @{Name='description';Expression={"{0} {1}" -f $_.description, $_.url}}
-
-# Convert the array of objects to a JSON string and wrap it in a policyDefinitionGroups array
-$jsonString = '{ "policyDefinitionGroups": ' + (ConvertTo-Json $data) + ' }'
-
-# Write the JSON string to the output files
-$jsonString | Out-File -Encoding utf8 $policysetPath
-$jsonString | Out-File -Encoding utf8 $policysetdefPath
-$jsonString | Out-File -Encoding utf8 $policysetparamsPath
+Write-Host "Policy set definition saved to $outputFilePath"
