@@ -1,9 +1,140 @@
 {
-  "displayName": "New Zealand ISM Restricted v3.6",
-  "policyDefinitions": [],
-  "description": "This initiative includes policies that address a subset of New Zealand Information Security Manual v3.6 controls. Additional policies will be added in upcoming releases. For more information, visit https://aka.ms/nzism-initiative. ",
   "metadata": {
-    "category": "Regulatory Compliance",
-    "version": "1.0.0"
-  }
+    "version": "1.0.0",
+    "category": "Regulatory Compliance"
+  },
+  "policyDefinitions": [
+    {
+      "policyDefinitionId": null,
+      "parameters": {
+        ".": {
+          "defaultValue": "Audit",
+          "type": "String",
+          "metadata": {
+            "description": "This is my @{policy=ef619a2c-cc4d-4d03-b2ba-8c94a834d85b; groupname=10.8.35.C.01.}.DisplayName parameter  description.",
+            "displayName": null
+          }
+        }
+      }
+    },
+    {
+      "policyDefinitionId": null,
+      "parameters": {
+        ".": {
+          "defaultValue": "Audit",
+          "type": "String",
+          "metadata": {
+            "description": "This is my @{policy=ca610c1d-041c-4332-9d88-7ed3094967c7; groupname=10.8.35.C.01.}.DisplayName parameter  description.",
+            "displayName": null
+          }
+        }
+      }
+    },
+    {
+      "policyDefinitionId": null,
+      "parameters": {
+        ".": {
+          "defaultValue": "Audit",
+          "type": "String",
+          "metadata": {
+            "description": "This is my @{policy=8e42c1f2-a2ab-49bc-994a-12bcd0dc4ac2; groupname=14.1.9.C.01.}.DisplayName parameter  description.",
+            "displayName": null
+          }
+        }
+      }
+    },
+    {
+      "policyDefinitionId": null,
+      "parameters": {
+        ".": {
+          "defaultValue": "Audit",
+          "type": "String",
+          "metadata": {
+            "description": "This is my @{policy=1f7c564c-0a90-4d44-b7e1-9d456cffaee8; groupname=14.1.9.C.01.}.DisplayName parameter  description.",
+            "displayName": null
+          }
+        }
+      }
+    },
+    {
+      "policyDefinitionId": null,
+      "parameters": {
+        ".": {
+          "defaultValue": "Audit",
+          "type": "String",
+          "metadata": {
+            "description": "This is my @{policy=2b9ad585-36bc-4615-b300-fd4435808332; groupname=16.1.32.C.01.}.DisplayName parameter  description.",
+            "displayName": null
+          }
+        }
+      }
+    },
+    {
+      "policyDefinitionId": null,
+      "parameters": {
+        ".": {
+          "defaultValue": "Audit",
+          "type": "String",
+          "metadata": {
+            "description": "This is my @{policy=0da106f2-4ca3-48e8-bc85-c638fe6aea8f; groupname=16.1.32.C.01.}.DisplayName parameter  description.",
+            "displayName": null
+          }
+        }
+      }
+    },
+    {
+      "policyDefinitionId": null,
+      "parameters": {
+        ".": {
+          "defaultValue": "Audit",
+          "type": "String",
+          "metadata": {
+            "description": "This is my @{policy=b54ed75b-3e1a-44ac-a333-05ba39b99ff0; groupname=16.1.32.C.01.}.DisplayName parameter  description.",
+            "displayName": null
+          }
+        }
+      }
+    },
+    {
+      "policyDefinitionId": null,
+      "parameters": {
+        ".": {
+          "defaultValue": "Audit",
+          "type": "String",
+          "metadata": {
+            "description": "This is my @{policy=1e66c121-a66a-4b1f-9b83-0fd99bf0fc2d; groupname=23.4.9.C.01.}.DisplayName parameter  description.",
+            "displayName": null
+          }
+        }
+      }
+    },
+    {
+      "policyDefinitionId": null,
+      "parameters": {
+        ".": {
+          "defaultValue": "Audit",
+          "type": "String",
+          "metadata": {
+            "description": "This is my @{policy=3657f5a0-770e-44a3-b44e-9431ba1e9735; groupname=23.4.9.C.01.}.DisplayName parameter  description.",
+            "displayName": null
+          }
+        }
+      }
+    },
+    {
+      "policyDefinitionId": null,
+      "parameters": {
+        ".": {
+          "defaultValue": "Audit",
+          "type": "String",
+          "metadata": {
+            "description": "This is my @{policy=1f905d99-2ab7-462c-a6b0-f709acca6c8f; groupname=23.4.9.C.01.}.DisplayName parameter  description.",
+            "displayName": null
+          }
+        }
+      }
+    }
+  ],
+  "description": "This initiative includes policies that address a subset of New Zealand Information Security Manual v3.6 controls. Additional policies will be added in upcoming releases. For more information, visit https://aka.ms/nzism-initiative. ",
+  "displayName": "New Zealand ISM Restricted v3.6"
 }

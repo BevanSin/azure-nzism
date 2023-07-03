@@ -2,7 +2,7 @@
 Connect-AzAccount
 
 # Set the variables
-$outputFile = "c:\temp\allpolicyoutput.csv"
+$outputFile = "C:\Repos\azure-nzism\csv\allpolicyoutput.csv"
 
 # Get all policies
 $policys = Get-AzPolicyDefinition | Select-Object Name,ResourceId -ExpandProperty Properties
