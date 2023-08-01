@@ -12,3 +12,7 @@ $jsonString = '{ "policyDefinitionGroups": ' + (ConvertTo-Json $data) + ' }'
 
 # Write the JSON string to the output file
 $jsonString | Out-File -Encoding utf8 $jsonPath
+
+
+#groups - cant have more than 1000 per initiative
+# group names cannot be more than 128 characters

@@ -1,10 +1,12 @@
 # Define variables
-$policySetDefinitionName = "New Zealand ISM Restricted v3.6"
-$policySetDescription = "This initiative includes policies that address a subset of New Zealand Information Security Manual v3.6 controls. Additional policies will be added in upcoming releases. For more information, visit https://aka.ms/nzism-initiative. "
-#$policyGroupDelimiter = ";"
-$outputFilePath = "policysetdefinition.json"
-$initiativeVersion = "1.0.0"
-$initiativeCategory = "Regulatory Compliance"
+$initname = "nzism-3.6-policyset" 
+$initdisplayname = "New Zealand ISM Restricted v3.6" 
+$initdescription = "This initiative includes policies that address a subset of New Zealand Information Security Manual v3.6 controls. Additional policies will be added in upcoming releases. For more information, visit https://aka.ms/nzism-initiative." 
+$initmetadata = '{"category":"Regulatory Compliance","version":"1.0"}'
+$initdefinitionsfile = "C:\repos\azure-nzism\json\nzism3.6.definitions.json" 
+$initparamsfile = "C:\repos\azure-nzism\json\nzism3.6.parameters.json" 
+$initgroupfile = "C:\repos\azure-nzism\json\nzism3.6.groups.json" 
+$outputFilePath = "C:\repos\azure-nzism\json\nzism3.6.json" 
 $parametersFilePath = "C:\Repos\azure-nzism\csv\params.csv"
 $policyFilePath = "C:\Repos\azure-nzism\csv\policies.csv"
 $controlsFilePath = "C:\Repos\azure-nzism\csv\controls.csv"
@@ -18,65 +20,60 @@ $policies = Import-Csv -Path $policyFilePath
 # Load parameters from CSV file
 $parameters = Import-Csv -Path $parametersFilePath
 
-#Create parts of the initiative
-#properties - displayname, description, metadata-version, metadata-category, version
-#policydefinitiongroups = controls = groups = metadata
-#policyDefinitions = policies to include in initiative    
-#parameters - params for each policy
+# Check if the policies are already cached locally
+$cacheFilePath = "C:\Repos\azure-nzism\json\allpolicies.json"
+if (Test-Path -Path $cacheFilePath) {
+    # If cached, read the policies from the local cache file
+    $policyCache = Get-Content -Raw -Path $cacheFilePath | ConvertFrom-Json
+} else {
+    # If not cached, get all policies from Azure and cache them locally
+    $policyCache = Get-AzPolicyDefinition | ForEach-Object { [PSCustomObject]@{ PolicyDefinitionId = $_.Name; PolicyReferenceId = $_.Properties.DisplayName; ResourceID = $_.ResourceID } }
+    $policyCache | ConvertTo-Json | Out-File -FilePath $cacheFilePath -Encoding UTF8
+}
 
-# Create policy set definition
-$policySetDefinition = @{
-    "displayName" = $policySetDefinitionName
-    "description" = $policySetDescription
-    "metadata" = @{
-        "version" = $initiativeVersion
-        "category" = $initiativeCategory
+#Create parts of the initiative
+#policydefinitiongroups = controls = groups = metadata - only use groups referenced by policies and also heading groups - nzism3.6.groups.json
+#policyDefinitions = policies to include in initiative - nzism3.6.definitions.json
+#parameters - params for each policy if required - nzism3.6.parameters.json
+
+# Iterate through each row in the CSV and construct the JSON object
+foreach ($row in $policies) {
+    $policy = $policyCache | Where-Object { $_.PolicyDefinitionId -eq $row.policyDefinitionId }
+    
+    If ($null -eq $policy){
+        Write-Host "Policy not found: $($row.policyDefinitionId)"
+        Continue
     }
-    "policyDefinitions" = @()
+
+    If ($row.parameters.trim() -eq "") {
+        $rowparams = @{}
+    } Else {
+        write-host $row.parameters
+        $rowparams = ConvertFrom-Json $row.parameters
+    }
+
+    $policyDefinition = [ordered]@{
+        "policyDefinitionId" = $policy.PolicyDefinitionId
+        "policyDefinitionReferenceId" = "$($policy.PolicyReferenceId)_1"
+        "parameters" = $rowparams
+        "groupNames" = @($row.groupnames -split ',')
+    }
+    $policyDefinitionsArray += $policyDefinition
 }
-foreach ($policy in $policies) {
-    # Create policy parameters
-    $parametersForPolicy = $parameters | Where-Object { $_.PolicyName -eq $policy.Name }
-    $parametersHash = @{}
-    foreach ($parameter in $parametersForPolicy) {
-        $parameterName = $parameter.Name
-        $parameterGroup = $parameter.Group
-        $parametersHash.Add("$parameterGroup.$parameterName", @{
-            "type" = "String"
-            "metadata" = @{
-                "displayName" = $parameterName
-                "description" = "This is my $policy.DisplayName parameter $parameterName description."
-            }
-            "defaultValue" = $parameter.DefaultValue
-        })
-    }
-    # Create policy definition
-    $policyData = @{
-        "if" = @{
-            "not" = @{
-                "field" = "tags['Environment']"
-                "equals" = "Prod"
-            }
-        }
-        "then" = @{
-            "effect" = "deny"
-        }
-        "parameters" = $parametersHash
-        "metadata" = @{
-            "displayName" = $policy.DisplayName
-            "description" = $policy.Description
-        }
-    }
-    $policyDefinition = @{
-        "policyDefinitionId" = $policy.DefinitionId
-        "parameters" = $parametersHash
-    }
-    # Add policy definition to policy set definition
-    $policySetDefinition.policyDefinitions += $policyDefinition
-}
+
+# Convert the array of policy definitions to JSON format
+$jsonOutput = ConvertTo-Json $policyDefinitionsArray
+
+# Save the JSON output to a file
+$jsonOutput | Out-File -FilePath $initdefinitionsfile -Encoding UTF8
+
+
+#create the groups file
+# will need a list of groups called from the policy input
+# will need to include the heading groups that dont have a C in the name
 
 # Convert policy set definition to JSON and output to file
-$policySetDefinitionJson = ConvertTo-Json $policySetDefinition -Depth 100
+$policySetDefinitionJson = az policy set-definition create --name $initname --display-name $initdisplayname --metadata $initmetadata --description $initdescription  --definitions $initdefinitionsfile --params $initparamsfile --definition-groups $initgroupfile
 $policySetDefinitionJson | Out-File -Encoding utf8 $outputFilePath
 
 Write-Host "Policy set definition saved to $outputFilePath"
