@@ -2,11 +2,7 @@
   {
     "policyDefinitionReferenceId": "API Management services should use a virtual network_1",
     "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/ef619a2c-cc4d-4d03-b2ba-8c94a834d85b",
-    "parameters": {
-      "evaluatedSkuNames-ef619a2c-cc4d-4d03-b2ba-8c94a834d85b": {
-        "value": "[parameters('evaluatedSkuNames-ef619a2c-cc4d-4d03-b2ba-8c94a834d85b')]"
-      }
-    },
+    "parameters": {},
     "groupNames": [
       "10.8.35.C.01."
     ]
@@ -38,11 +34,7 @@
   {
     "policyDefinitionReferenceId": "Azure Machine Learning workspaces should use private link_1",
     "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/45e05259-1eb5-4f70-9574-baf73e9d219b",
-    "parameters": {
-      "effect-45e05259-1eb5-4f70-9574-baf73e9d219b": {
-        "value": "[parameters('effect-45e05259-1eb5-4f70-9574-baf73e9d219b')]"
-      }
-    },
+    "parameters": {},
     "groupNames": [
       "10.8.35.C.01."
     ]
@@ -58,14 +50,7 @@
   {
     "policyDefinitionReferenceId": "Azure Spring Cloud should use network injection_1",
     "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/af35e2a4-ef96-44e7-a9ae-853dd97032c4",
-    "parameters": {
-      "effect-af35e2a4-ef96-44e7-a9ae-853dd97032c4": {
-        "value": "[parameters('effect-af35e2a4-ef96-44e7-a9ae-853dd97032c4')]"
-      },
-      "evaluatedSkuNames-af35e2a4-ef96-44e7-a9ae-853dd97032c4": {
-        "value": "[parameters('evaluatedSkuNames-af35e2a4-ef96-44e7-a9ae-853dd97032c4')]"
-      }
-    },
+    "parameters": {},
     "groupNames": [
       "10.8.35.C.01."
     ]
@@ -129,11 +114,7 @@
   {
     "policyDefinitionReferenceId": "Storage accounts should restrict network access using virtual network rules_1",
     "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/2a1a9cdf-e04d-429a-8416-3bfb72a1b26f",
-    "parameters": {
-      "effect-2a1a9cdf-e04d-429a-8416-3bfb72a1b26f": {
-        "value": "[parameters('effect-2a1a9cdf-e04d-429a-8416-3bfb72a1b26f')]"
-      }
-    },
+    "parameters": {},
     "groupNames": [
       "10.8.35.C.01."
     ]
@@ -149,11 +130,7 @@
   {
     "policyDefinitionReferenceId": "VM Image Builder templates should use private link_1",
     "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/2154edb9-244f-4741-9970-660785bccdaa",
-    "parameters": {
-      "effect-2154edb9-244f-4741-9970-660785bccdaa": {
-        "value": "[parameters('effect-2154edb9-244f-4741-9970-660785bccdaa')]"
-      }
-    },
+    "parameters": {},
     "groupNames": [
       "10.8.35.C.01."
     ]
@@ -242,9 +219,6 @@
     "policyDefinitionReferenceId": "Kubernetes cluster containers should not share host process ID or host IPC namespace_1",
     "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/47a1ee2f-2a2a-4576-bf2a-e0e36709c2b8",
     "parameters": {
-      "effect-47a1ee2f-2a2a-4576-bf2a-e0e36709c2b8": {
-        "value": "[parameters('effect-47a1ee2f-2a2a-4576-bf2a-e0e36709c2b8')]"
-      },
       "labelSelector": {
         "value": "[parameters('labelSelector')]"
       }
@@ -259,9 +233,6 @@
     "parameters": {
       "labelSelector": {
         "value": "[parameters('labelSelector')]"
-      },
-      "effect-df49d893-a74c-421d-bc95-c663042e5b80": {
-        "value": "[parameters('effect-df49d893-a74c-421d-bc95-c663042e5b80')]"
       }
     },
     "groupNames": [
@@ -272,9 +243,6 @@
     "policyDefinitionReferenceId": "Kubernetes cluster should not allow privileged containers_1",
     "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/95edb821-ddaf-4404-9732-666045e056b4",
     "parameters": {
-      "effect-95edb821-ddaf-4404-9732-666045e056b4": {
-        "value": "[parameters('effect-95edb821-ddaf-4404-9732-666045e056b4')]"
-      },
       "labelSelector": {
         "value": "[parameters('labelSelector')]"
       }
@@ -289,9 +257,6 @@
     "parameters": {
       "labelSelector": {
         "value": "[parameters('labelSelector')]"
-      },
-      "effect-1a5b4dca-0b6f-4cf5-907c-56316bc1bf3d": {
-        "value": "[parameters('effect-1a5b4dca-0b6f-4cf5-907c-56316bc1bf3d')]"
       }
     },
     "groupNames": [
@@ -304,9 +269,6 @@
     "parameters": {
       "labelSelector": {
         "value": "[parameters('labelSelector')]"
-      },
-      "effect-423dd1ba-798e-40e4-9c4d-b6902674b423": {
-        "value": "[parameters('effect-423dd1ba-798e-40e4-9c4d-b6902674b423')]"
       }
     },
     "groupNames": [
@@ -317,9 +279,6 @@
     "policyDefinitionReferenceId": "Kubernetes clusters should not allow container privilege escalation_1",
     "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1c6e92c9-99f0-4e55-9cf2-0c234dc48f99",
     "parameters": {
-      "effect-1c6e92c9-99f0-4e55-9cf2-0c234dc48f99": {
-        "value": "[parameters('effect-1c6e92c9-99f0-4e55-9cf2-0c234dc48f99')]"
-      },
       "labelSelector": {
         "value": "[parameters('labelSelector')]"
       }
@@ -334,9 +293,6 @@
     "parameters": {
       "labelSelector": {
         "value": "[parameters('labelSelector')]"
-      },
-      "effect-d2e7ea85-6b44-4317-a0be-1b951587f626": {
-        "value": "[parameters('effect-d2e7ea85-6b44-4317-a0be-1b951587f626')]"
       }
     },
     "groupNames": [
@@ -349,9 +305,6 @@
     "parameters": {
       "labelSelector": {
         "value": "[parameters('labelSelector')]"
-      },
-      "effect-9f061a12-e40d-4183-a00e-171812443373": {
-        "value": "[parameters('effect-9f061a12-e40d-4183-a00e-171812443373')]"
       }
     },
     "groupNames": [
@@ -385,11 +338,7 @@
   {
     "policyDefinitionReferenceId": "Windows Defender Exploit Guard should be enabled on your machines_1",
     "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/bed48b13-6647-468e-aa2f-1af1d3f4dd40",
-    "parameters": {
-      "NotAvailableMachineState-bed48b13-6647-468e-aa2f-1af1d3f4dd40": {
-        "value": "[parameters('NotAvailableMachineState-bed48b13-6647-468e-aa2f-1af1d3f4dd40')]"
-      }
-    },
+    "parameters": {},
     "groupNames": [
       "14.1.9.C.01."
     ]
@@ -565,11 +514,7 @@
   {
     "policyDefinitionReferenceId": "Service Fabric clusters should only use Azure Active Directory for client authentication_1",
     "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/b54ed75b-3e1a-44ac-a333-05ba39b99ff0",
-    "parameters": {
-      "effect-b54ed75b-3e1a-44ac-a333-05ba39b99ff0": {
-        "value": "[parameters('effect-b54ed75b-3e1a-44ac-a333-05ba39b99ff0')]"
-      }
-    },
+    "parameters": {},
     "groupNames": [
       "16.1.32.C.01."
     ]
@@ -693,11 +638,7 @@
   {
     "policyDefinitionReferenceId": "Auditing on SQL server should be enabled_1",
     "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/a6fb4358-5bf4-4ad7-ba82-2cd2f41ce5e9",
-    "parameters": {
-      "setting-a6fb4358-5bf4-4ad7-ba82-2cd2f41ce5e9": {
-        "value": "[parameters('setting-a6fb4358-5bf4-4ad7-ba82-2cd2f41ce5e9')]"
-      }
-    },
+    "parameters": {},
     "groupNames": [
       "23.5.11.C.01."
     ]
@@ -877,11 +818,7 @@
   {
     "policyDefinitionReferenceId": "Key vaults should have deletion protection enabled_1",
     "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/0b60c0b2-2dc2-4e1c-b5c9-abbed971de53",
-    "parameters": {
-      "effect-0b60c0b2-2dc2-4e1c-b5c9-abbed971de53": {
-        "value": "[parameters('effect-0b60c0b2-2dc2-4e1c-b5c9-abbed971de53')]"
-      }
-    },
+    "parameters": {},
     "groupNames": [
       "23.4.9.C.01."
     ]
@@ -889,11 +826,7 @@
   {
     "policyDefinitionReferenceId": "Key vaults should have soft delete enabled_1",
     "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1e66c121-a66a-4b1f-9b83-0fd99bf0fc2d",
-    "parameters": {
-      "effect-1e66c121-a66a-4b1f-9b83-0fd99bf0fc2d": {
-        "value": "[parameters('effect-1e66c121-a66a-4b1f-9b83-0fd99bf0fc2d')]"
-      }
-    },
+    "parameters": {},
     "groupNames": [
       "23.4.9.C.01."
     ]
@@ -901,11 +834,7 @@
   {
     "policyDefinitionReferenceId": "Automation account variables should be encrypted_1",
     "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/3657f5a0-770e-44a3-b44e-9431ba1e9735",
-    "parameters": {
-      "effect-3657f5a0-770e-44a3-b44e-9431ba1e9735": {
-        "value": "[parameters('effect-3657f5a0-770e-44a3-b44e-9431ba1e9735')]"
-      }
-    },
+    "parameters": {},
     "groupNames": [
       "23.4.9.C.01."
     ]
@@ -913,11 +842,7 @@
   {
     "policyDefinitionReferenceId": "Azure Cosmos DB accounts should use customer-managed keys to encrypt data at rest_1",
     "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1f905d99-2ab7-462c-a6b0-f709acca6c8f",
-    "parameters": {
-      "effect-1f905d99-2ab7-462c-a6b0-f709acca6c8f": {
-        "value": "[parameters('effect-1f905d99-2ab7-462c-a6b0-f709acca6c8f')]"
-      }
-    },
+    "parameters": {},
     "groupNames": [
       "23.4.9.C.01."
     ]
@@ -925,11 +850,7 @@
   {
     "policyDefinitionReferenceId": "Azure Machine Learning workspaces should be encrypted with a customer-managed key_1",
     "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/ba769a63-b8cc-4b2d-abf6-ac33c7204be8",
-    "parameters": {
-      "effect-ba769a63-b8cc-4b2d-abf6-ac33c7204be8": {
-        "value": "[parameters('effect-ba769a63-b8cc-4b2d-abf6-ac33c7204be8')]"
-      }
-    },
+    "parameters": {},
     "groupNames": [
       "23.4.9.C.01."
     ]
@@ -937,11 +858,7 @@
   {
     "policyDefinitionReferenceId": "Cognitive Services accounts should enable data encryption with a customer-managed key_1",
     "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/67121cc7-ff39-4ab8-b7e3-95b84dab487d",
-    "parameters": {
-      "effect-67121cc7-ff39-4ab8-b7e3-95b84dab487d": {
-        "value": "[parameters('effect-67121cc7-ff39-4ab8-b7e3-95b84dab487d')]"
-      }
-    },
+    "parameters": {},
     "groupNames": [
       "23.4.9.C.01."
     ]
@@ -949,11 +866,7 @@
   {
     "policyDefinitionReferenceId": "Container registries should be encrypted with a customer-managed key_1",
     "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/5b9159ae-1701-4a6f-9a7a-aa9c8ddd0580",
-    "parameters": {
-      "effect-5b9159ae-1701-4a6f-9a7a-aa9c8ddd0580": {
-        "value": "[parameters('effect-5b9159ae-1701-4a6f-9a7a-aa9c8ddd0580')]"
-      }
-    },
+    "parameters": {},
     "groupNames": [
       "23.4.9.C.01."
     ]
@@ -969,11 +882,7 @@
   {
     "policyDefinitionReferenceId": "Service Fabric clusters should have the ClusterProtectionLevel property set to EncryptAndSign_1",
     "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/617c02be-7f02-4efd-8836-3180d47b6c68",
-    "parameters": {
-      "effect-617c02be-7f02-4efd-8836-3180d47b6c68": {
-        "value": "[parameters('effect-617c02be-7f02-4efd-8836-3180d47b6c68')]"
-      }
-    },
+    "parameters": {},
     "groupNames": [
       "23.4.9.C.01."
     ]
@@ -981,11 +890,7 @@
   {
     "policyDefinitionReferenceId": "SQL managed instances should use customer-managed keys to encrypt data at rest_1",
     "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/ac01ad65-10e5-46df-bdd9-6b0cad13e1d2",
-    "parameters": {
-      "effect-ac01ad65-10e5-46df-bdd9-6b0cad13e1d2": {
-        "value": "[parameters('effect-ac01ad65-10e5-46df-bdd9-6b0cad13e1d2')]"
-      }
-    },
+    "parameters": {},
     "groupNames": [
       "23.4.9.C.01."
     ]
@@ -993,11 +898,7 @@
   {
     "policyDefinitionReferenceId": "SQL servers should use customer-managed keys to encrypt data at rest_1",
     "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/0a370ff3-6cab-4e85-8995-295fd854c5b8",
-    "parameters": {
-      "effect-0a370ff3-6cab-4e85-8995-295fd854c5b8": {
-        "value": "[parameters('effect-0a370ff3-6cab-4e85-8995-295fd854c5b8')]"
-      }
-    },
+    "parameters": {},
     "groupNames": [
       "23.4.9.C.01."
     ]
@@ -1030,10 +931,7 @@
     "policyDefinitionReferenceId": "Certificates using RSA cryptography should have the specified minimum key size_1",
     "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/cee51871-e572-4576-855c-047c820360f0",
     "parameters": {
-      "effect-cee51871-e572-4576-855c-047c820360f0": {
-        "value": "[parameters('effect-cee51871-e572-4576-855c-047c820360f0')]"
-      },
-      "minimumRSAKeySize-cee51871-e572-4576-855c-047c820360f0": {
+      "minimumRSAKeySize": {
         "value": "[parameters('minimumRSAKeySize-cee51871-e572-4576-855c-047c820360f0')]"
       }
     },
@@ -1060,11 +958,7 @@
   {
     "policyDefinitionReferenceId": "Windows web servers should be configured to use secure communication protocols_1",
     "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/5752e6d6-1206-46d8-8ab1-ecc2f71a8112",
-    "parameters": {
-      "MinimumTLSVersion-5752e6d6-1206-46d8-8ab1-ecc2f71a8112": {
-        "value": "[parameters('MinimumTLSVersion-5752e6d6-1206-46d8-8ab1-ecc2f71a8112')]"
-      }
-    },
+    "parameters": {},
     "groupNames": [
       "17.4.16.C.01."
     ]
@@ -1088,11 +982,7 @@
   {
     "policyDefinitionReferenceId": "Key Vault keys should have an expiration date_1",
     "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/152b15f7-8e1f-4c1f-ab71-8c010ba5dbc0",
-    "parameters": {
-      "effect-152b15f7-8e1f-4c1f-ab71-8c010ba5dbc0": {
-        "value": "[parameters('effect-152b15f7-8e1f-4c1f-ab71-8c010ba5dbc0')]"
-      }
-    },
+    "parameters": {},
     "groupNames": [
       "17.1.58.C.01."
     ]
@@ -1100,11 +990,7 @@
   {
     "policyDefinitionReferenceId": "Key Vault secrets should have an expiration date_1",
     "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/98728c90-32c7-4049-8429-847dc0f4fe37",
-    "parameters": {
-      "effect-98728c90-32c7-4049-8429-847dc0f4fe37": {
-        "value": "[parameters('effect-98728c90-32c7-4049-8429-847dc0f4fe37')]"
-      }
-    },
+    "parameters": {},
     "groupNames": [
       "17.1.58.C.01."
     ]
@@ -1136,11 +1022,7 @@
   {
     "policyDefinitionReferenceId": "Azure Web Application Firewall should be enabled for Azure Front Door entry-points_1",
     "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/055aa869-bc98-4af8-bafc-23f1ab6ffe2c",
-    "parameters": {
-      "effect-055aa869-bc98-4af8-bafc-23f1ab6ffe2c": {
-        "value": "[parameters('effect-055aa869-bc98-4af8-bafc-23f1ab6ffe2c')]"
-      }
-    },
+    "parameters": {},
     "groupNames": [
       "18.4.8.C.01."
     ]
@@ -1148,11 +1030,7 @@
   {
     "policyDefinitionReferenceId": "Web Application Firewall (WAF) should be enabled for Application Gateway_1",
     "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/564feb30-bf6a-4854-b4bb-0d2d2d1e6c66",
-    "parameters": {
-      "effect-564feb30-bf6a-4854-b4bb-0d2d2d1e6c66": {
-        "value": "[parameters('effect-564feb30-bf6a-4854-b4bb-0d2d2d1e6c66')]"
-      }
-    },
+    "parameters": {},
     "groupNames": [
       "18.4.8.C.01."
     ]
@@ -1160,14 +1038,7 @@
   {
     "policyDefinitionReferenceId": "Web Application Firewall (WAF) should use the specified mode for Application Gateway_1",
     "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/12430be1-6cc8-4527-a9a8-e3d38f250096",
-    "parameters": {
-      "effect-12430be1-6cc8-4527-a9a8-e3d38f250096": {
-        "value": "[parameters('effect-12430be1-6cc8-4527-a9a8-e3d38f250096')]"
-      },
-      "modeRequirement-12430be1-6cc8-4527-a9a8-e3d38f250096": {
-        "value": "[parameters('modeRequirement-12430be1-6cc8-4527-a9a8-e3d38f250096')]"
-      }
-    },
+    "parameters": {},
     "groupNames": [
       "18.4.8.C.01."
     ]
@@ -1175,14 +1046,7 @@
   {
     "policyDefinitionReferenceId": "Web Application Firewall (WAF) should use the specified mode for Azure Front Door Service_1",
     "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/425bea59-a659-4cbb-8d31-34499bd030b8",
-    "parameters": {
-      "effect-425bea59-a659-4cbb-8d31-34499bd030b8": {
-        "value": "[parameters('effect-425bea59-a659-4cbb-8d31-34499bd030b8')]"
-      },
-      "modeRequirement-425bea59-a659-4cbb-8d31-34499bd030b8": {
-        "value": "[parameters('modeRequirement-425bea59-a659-4cbb-8d31-34499bd030b8')]"
-      }
-    },
+    "parameters": {},
     "groupNames": [
       "18.4.8.C.01."
     ]
@@ -1190,11 +1054,7 @@
   {
     "policyDefinitionReferenceId": "All authorization rules except RootManageSharedAccessKey should be removed from Service Bus namespace_1",
     "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/a1817ec0-a368-432a-8057-8371e17ac6ee",
-    "parameters": {
-      "effect-a1817ec0-a368-432a-8057-8371e17ac6ee": {
-        "value": "[parameters('effect-a1817ec0-a368-432a-8057-8371e17ac6ee')]"
-      }
-    },
+    "parameters": {},
     "groupNames": [
       "18.4.8.C.01."
     ]
@@ -1210,11 +1070,7 @@
   {
     "policyDefinitionReferenceId": "Azure Key Vault Managed HSM should have purge protection enabled_1",
     "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/c39ba22d-4428-4149-b981-70acb31fc383",
-    "parameters": {
-      "effect-c39ba22d-4428-4149-b981-70acb31fc383": {
-        "value": "[parameters('effect-c39ba22d-4428-4149-b981-70acb31fc383')]"
-      }
-    },
+    "parameters": {},
     "groupNames": [
       "23.4.9.C.01."
     ]
@@ -1222,11 +1078,7 @@
   {
     "policyDefinitionReferenceId": "Cognitive Services accounts should disable public network access_1",
     "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/0725b4dd-7e76-479c-a735-68e7ee23d5ca",
-    "parameters": {
-      "effect-0725b4dd-7e76-479c-a735-68e7ee23d5ca": {
-        "value": "[parameters('effect-0725b4dd-7e76-479c-a735-68e7ee23d5ca')]"
-      }
-    },
+    "parameters": {},
     "groupNames": [
       "18.1.13.C.02."
     ]
@@ -1250,11 +1102,7 @@
   {
     "policyDefinitionReferenceId": "Public network access on Azure SQL Database should be disabled_1",
     "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1b8ca024-1d5c-4dec-8995-b1a932b41780",
-    "parameters": {
-      "effect-1b8ca024-1d5c-4dec-8995-b1a932b41780": {
-        "value": "[parameters('effect-1b8ca024-1d5c-4dec-8995-b1a932b41780')]"
-      }
-    },
+    "parameters": {},
     "groupNames": [
       "18.1.13.C.02."
     ]
@@ -1286,11 +1134,7 @@
   {
     "policyDefinitionReferenceId": "Storage account keys should not be expired_1",
     "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/044985bb-afe1-42cd-8a36-9d5d42424537",
-    "parameters": {
-      "effect-044985bb-afe1-42cd-8a36-9d5d42424537": {
-        "value": "[parameters('effect-044985bb-afe1-42cd-8a36-9d5d42424537')]"
-      }
-    },
+    "parameters": {},
     "groupNames": [
       "17.1.58.C.01."
     ]
@@ -1306,11 +1150,7 @@
   {
     "policyDefinitionReferenceId": "Azure Cosmos DB accounts should have firewall rules_1",
     "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/862e97cf-49fc-4a5c-9de4-40d4e2e7c8eb",
-    "parameters": {
-      "effect-862e97cf-49fc-4a5c-9de4-40d4e2e7c8eb": {
-        "value": "[parameters('effect-862e97cf-49fc-4a5c-9de4-40d4e2e7c8eb')]"
-      }
-    },
+    "parameters": {},
     "groupNames": [
       "18.1.13.C.02."
     ]
@@ -1318,11 +1158,7 @@
   {
     "policyDefinitionReferenceId": "Cognitive Services accounts should restrict network access_1",
     "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/037eea7a-bd0a-46c5-9a66-03aea78705d3",
-    "parameters": {
-      "effect-037eea7a-bd0a-46c5-9a66-03aea78705d3": {
-        "value": "[parameters('effect-037eea7a-bd0a-46c5-9a66-03aea78705d3')]"
-      }
-    },
+    "parameters": {},
     "groupNames": [
       "18.1.13.C.02."
     ]
@@ -1330,11 +1166,7 @@
   {
     "policyDefinitionReferenceId": "Container registries should not allow unrestricted network access_1",
     "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/d0793b48-0edc-4296-a390-4c75d1bdfd71",
-    "parameters": {
-      "effect-d0793b48-0edc-4296-a390-4c75d1bdfd71": {
-        "value": "[parameters('effect-d0793b48-0edc-4296-a390-4c75d1bdfd71')]"
-      }
-    },
+    "parameters": {},
     "groupNames": [
       "18.1.13.C.02."
     ]
@@ -1342,11 +1174,7 @@
   {
     "policyDefinitionReferenceId": "Storage accounts should restrict network access_1",
     "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/34c877ad-507e-4c82-993e-3452a6e0ad3c",
-    "parameters": {
-      "effect-34c877ad-507e-4c82-993e-3452a6e0ad3c": {
-        "value": "[parameters('effect-34c877ad-507e-4c82-993e-3452a6e0ad3c')]"
-      }
-    },
+    "parameters": {},
     "groupNames": [
       "18.1.13.C.02."
     ]
@@ -1586,11 +1414,7 @@
   {
     "policyDefinitionReferenceId": "Only secure connections to your Azure Cache for Redis should be enabled_1",
     "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/22bee202-a82f-4305-9a2a-6d7f44d4dedb",
-    "parameters": {
-      "effect-22bee202-a82f-4305-9a2a-6d7f44d4dedb": {
-        "value": "[parameters('effect-22bee202-a82f-4305-9a2a-6d7f44d4dedb')]"
-      }
-    },
+    "parameters": {},
     "groupNames": [
       "18.1.13.C.02."
     ]
@@ -1598,11 +1422,7 @@
   {
     "policyDefinitionReferenceId": "Secure transfer to storage accounts should be enabled_1",
     "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/404c3081-a854-4457-ae30-26a93ef643f9",
-    "parameters": {
-      "effect-404c3081-a854-4457-ae30-26a93ef643f9": {
-        "value": "[parameters('effect-404c3081-a854-4457-ae30-26a93ef643f9')]"
-      }
-    },
+    "parameters": {},
     "groupNames": [
       "18.1.13.C.02."
     ]
@@ -1754,7 +1574,11 @@
   {
     "policyDefinitionReferenceId": "Keys using RSA cryptography should have a specified minimum key size_1",
     "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/82067dbb-e53b-4e06-b631-546d197452d9",
-    "parameters": {},
+    "parameters": {
+      "minimumRSAKeySize": {
+        "value": "[parameters('minimumRSAKeySize-82067dbb-e53b-4e06-b631-546d197452d9')]"
+      }
+    },
     "groupNames": [
       "17.2.19.C.01."
     ]

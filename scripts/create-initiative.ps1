@@ -103,7 +103,8 @@ foreach ($row in $policies) {
         $rowparams = $row.parameters -split ';'
         $paramHashtable = @{}
         foreach ($param in $rowparams) {
-            $paramHashtable[$param] = @{ "value" = "[parameters('$param')]"}
+            $paramName, $paramValue = $param.Split('-', 2)
+            $paramHashtable[$paramName] = @{ "value" = "[parameters('$param')]"}
         }
         $rowparams = $paramHashtable
     }
@@ -166,7 +167,8 @@ $jsonControlsOutput | Out-File -FilePath $initgroupfile -Encoding utf8
 
 # Convert policy set definition to JSON and output to file
 # $policySetDefinitionJson = az policy set-definition create --name $initname --display-name $initdisplayname --metadata $initmetadata --description $initdescription  --definitions $initdefinitionsfile --params $initparamsfile --definition-groups $initgroupfile
-$policySetDefinitionJson = az policy set-definition create --name $initname --display-name $initdisplayname --description $initdescription  --definitions $initdefinitionsfile --params $initparamsfile --definition-groups $initgroupfile
+# $policySetDefinitionJson = 
+az policy set-definition create --name $initname --display-name $initdisplayname --description $initdescription  --definitions $initdefinitionsfile --params $initparamsfile --definition-groups $initgroupfile
 $policySetDefinitionJson | Out-File -Encoding utf8 $outputFilePath
 
 Write-Host "Policy set definition saved to $outputFilePath"
