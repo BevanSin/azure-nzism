@@ -1,9 +1,6 @@
 # Read the CSV file
 $csvFilePath = "C:\Repos\azure-nzism\csv\policies.csv"
-$csvData = Import-Csv -Path $csvFilePath
-
-# Initialize an array to store the policy definitions
-$policyDefinitionsArray = @()
+$policies = Import-Csv -Path $csvFilePath
 
 # Check if the policies are already cached locally
 $cacheFilePath = "C:\Repos\azure-nzism\json\allpolicies.json"
@@ -16,11 +13,14 @@ if (Test-Path -Path $cacheFilePath) {
     $policyCache | ConvertTo-Json | Out-File -FilePath $cacheFilePath -Encoding UTF8
 }
 
+# Initialize an array to store the policy definitions
+$policyDefinitionsArray = @()
+
 # Iterate through each row in the CSV and construct the JSON object
-foreach ($row in $csvData) {
+foreach ($row in $policies) {
     $policy = $policyCache | Where-Object { $_.PolicyDefinitionId -eq $row.policyDefinitionId }
-    
-    If ($null -eq $policy){
+
+    If ($null -eq $policy) {
         Write-Host "Policy not found: $($row.policyDefinitionId)"
         Continue
     }
@@ -28,13 +28,17 @@ foreach ($row in $csvData) {
     If ($row.parameters.trim() -eq "") {
         $rowparams = @{}
     } Else {
-        write-host $row.parameters
-        $rowparams = ConvertFrom-Json $row.parameters
+        $rowparams = $row.parameters -split ';'
+        $paramHashtable = @{}
+        foreach ($param in $rowparams) {
+            $paramHashtable[$param] = @{ "value" = "[parameters('$param')]"}
+        }
+        $rowparams = $paramHashtable
     }
 
     $policyDefinition = [ordered]@{
-        "policyDefinitionId" = $policy.PolicyDefinitionId
         "policyDefinitionReferenceId" = "$($policy.PolicyReferenceId)_1"
+        "policyDefinitionId" = $policy.ResourceID
         "parameters" = $rowparams
         "groupNames" = @($row.groupnames -split ',')
     }
@@ -42,8 +46,8 @@ foreach ($row in $csvData) {
 }
 
 # Convert the array of policy definitions to JSON format
-$jsonOutput = ConvertTo-Json $policyDefinitionsArray
+$jsonDefOutput = $policyDefinitionsArray | ConvertTo-Json -Depth 100
 
 # Save the JSON output to a file
-$jsonOutputFilePath = "C:\Repos\azure-nzism\json\test.json"
-$jsonOutput | Out-File -FilePath $jsonOutputFilePath -Encoding UTF8
+$initdefinitionsfile = "C:\Repos\azure-nzism\json\test.json"
+$jsonDefOutput | Out-File -FilePath $initdefinitionsfile -Encoding utf8

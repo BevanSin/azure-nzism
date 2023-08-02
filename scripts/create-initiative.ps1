@@ -2,7 +2,7 @@
 $initname = "nzism-3.6-policyset" 
 $initdisplayname = "New Zealand ISM Restricted v3.6" 
 $initdescription = "This initiative includes policies that address a subset of New Zealand Information Security Manual v3.6 controls. Additional policies will be added in upcoming releases. For more information, visit https://aka.ms/nzism-initiative." 
-$initmetadata = '{"category":"Regulatory Compliance","version":"1.0"}'
+$initmetadata = "{`"category`":`"Regulatory Compliance`",`"version`":`"1.0`"}"
 $initdefinitionsfile = "C:\repos\azure-nzism\json\nzism3.6.definitions.json" 
 $initparamsfile = "C:\repos\azure-nzism\json\nzism3.6.parameters.json" 
 $initgroupfile = "C:\repos\azure-nzism\json\nzism3.6.groups.json" 
@@ -10,15 +10,6 @@ $outputFilePath = "C:\repos\azure-nzism\json\nzism3.6.json"
 $parametersFilePath = "C:\Repos\azure-nzism\csv\params.csv"
 $policyFilePath = "C:\Repos\azure-nzism\csv\policies.csv"
 $controlsFilePath = "C:\Repos\azure-nzism\csv\controls.csv"
-
-# Load policies from CSV file
-$controls = Import-Csv -Path $controlsFilePath
-
-# Load policies from CSV file
-$policies = Import-Csv -Path $policyFilePath
-
-# Load parameters from CSV file
-$parameters = Import-Csv -Path $parametersFilePath
 
 # Check if the policies are already cached locally
 $cacheFilePath = "C:\Repos\azure-nzism\json\allpolicies.json"
@@ -32,15 +23,76 @@ if (Test-Path -Path $cacheFilePath) {
 }
 
 #Create parts of the initiative
-#policydefinitiongroups = controls = groups = metadata - only use groups referenced by policies and also heading groups - nzism3.6.groups.json
-#policyDefinitions = policies to include in initiative - nzism3.6.definitions.json
-#parameters - params for each policy if required - nzism3.6.parameters.json
+
+#create the params file##############################################################################################
+$controls = Get-Content -Path $parametersFilePath -Encoding UTF8 | ConvertFrom-Csv -Delimiter '|'
+
+# Initialize a hashtable to store the policy definitions
+$paramsControls = @{}
+
+# Iterate through each row in the CSV and construct the JSON object
+foreach ($row in $controls) {
+    $paramName = $row.ParameterName
+
+    $type = $row.Type
+    $isInteger = $type -eq "Integer"
+    $isBoolean = $type -eq "Boolean"
+    $isObject = $type -eq "Object"
+    $isArray = $type -eq "Array"
+
+    $paramsControls[$paramname] = [ordered]@{
+        "type" = $type
+        "metadata" = @{
+            "displayName" = $row.DisplayName
+            "description" = $row.Description
+        }
+    }
+    
+    if ($row.AllowedValues -ne "") {
+        $allowedValues = $row.AllowedValues -split ';'
+        if ($isInteger) {
+            $allowedValues = $allowedValues | ForEach-Object { [int]$_ }
+        } elseif ($isBoolean) {
+            $allowedValues = $allowedValues | ForEach-Object { [bool]$_ }
+        }
+        $paramsControls[$paramname].Add("allowedValues", $allowedValues)
+    }
+
+    $defaultValue = $row.DefaultValue
+
+    if ($isObject -and $defaultValue.Length -eq 0) {
+        $defaultValue = [ordered]@{}
+    } elseif ($isInteger -and $defaultValue) {
+        $defaultValue = [int]$defaultValue
+    } elseif ($isBoolean -and $defaultValue) {
+        $defaultValue = [bool]$defaultValue
+    } elseif ($isArray -and $defaultValue) {
+        $defaultValue = @($defaultValue -split ';')       
+    }  
+
+    if ($defaultValue -ne "") {
+        $paramsControls[$paramname].Add("defaultValue", $defaultValue)
+    }
+}
+
+# Convert the hashtable to JSON format
+$jsonParamsOutput = ConvertTo-Json $paramsControls
+
+# Save the JSON output to a file
+$jsonParamsOutput | Out-File -FilePath $initparamsfile -Encoding utf8
+
+#create the policies file##############################################################################################
+# Load policies from CSV file
+$policies = Import-Csv -Path $policyFilePath
+
+# Initialize an array to store the policy definitions
+$policyDefinitionsArray = @()
 
 # Iterate through each row in the CSV and construct the JSON object
 foreach ($row in $policies) {
     $policy = $policyCache | Where-Object { $_.PolicyDefinitionId -eq $row.policyDefinitionId }
-    
-    If ($null -eq $policy){
+
+    If ($null -eq $policy) {
         Write-Host "Policy not found: $($row.policyDefinitionId)"
         Continue
     }
@@ -48,13 +100,17 @@ foreach ($row in $policies) {
     If ($row.parameters.trim() -eq "") {
         $rowparams = @{}
     } Else {
-        write-host $row.parameters
-        $rowparams = ConvertFrom-Json $row.parameters
+        $rowparams = $row.parameters -split ';'
+        $paramHashtable = @{}
+        foreach ($param in $rowparams) {
+            $paramHashtable[$param] = @{ "value" = "[parameters('$param')]"}
+        }
+        $rowparams = $paramHashtable
     }
 
     $policyDefinition = [ordered]@{
-        "policyDefinitionId" = $policy.PolicyDefinitionId
         "policyDefinitionReferenceId" = "$($policy.PolicyReferenceId)_1"
+        "policyDefinitionId" = $policy.ResourceID
         "parameters" = $rowparams
         "groupNames" = @($row.groupnames -split ',')
     }
@@ -62,18 +118,55 @@ foreach ($row in $policies) {
 }
 
 # Convert the array of policy definitions to JSON format
-$jsonOutput = ConvertTo-Json $policyDefinitionsArray
+$jsonDefOutput = ConvertTo-Json $policyDefinitionsArray -Depth 100
 
 # Save the JSON output to a file
-$jsonOutput | Out-File -FilePath $initdefinitionsfile -Encoding UTF8
+$jsonDefOutput | Out-File -FilePath $initdefinitionsfile -Encoding UTF8
 
+#create the groups file##############################################################################################
+# Read the CSV file
+$csvData = Get-Content -Path $controlsFilePath -Encoding UTF8 | ConvertFrom-Csv -Delimiter '|'
 
-#create the groups file
-# will need a list of groups called from the policy input
-# will need to include the heading groups that dont have a C in the name
+# Initialize an array to store the policy definitions
+$policyControlsArray = @()
+
+$definitionscache = Get-Content -Raw -Path $initdefinitionsfile -Encoding utf8 | ConvertFrom-Json
+
+# Iterate through each row in the CSV and construct the JSON object
+foreach ($row in $csvData) {
+    $definition = $null
+    $definition = $definitionscache | Where-Object { $_.groupNames -eq $row.name }
+
+    if($row.name.Length -lt 8){
+        
+        $policyControls = [ordered]@{
+            "name" = $row.name
+            "category" = $row.category
+            "displayName" = $row.displayName
+            "description" = $row.description
+        }
+        $policyControlsArray += $policyControls        
+    }
+    elseif($null -ne $definition) {
+        $policyControls = [ordered]@{
+            "name" = $row.name
+            "category" = $row.category
+            "displayName" = $row.displayName
+            "description" = $row.description
+        }
+        $policyControlsArray += $policyControls
+    }
+}
+
+# Convert the array of policy definitions to JSON format
+$jsonControlsOutput = ConvertTo-Json $policyControlsArray
+
+# Save the JSON output to a file
+$jsonControlsOutput | Out-File -FilePath $initgroupfile -Encoding utf8
 
 # Convert policy set definition to JSON and output to file
-$policySetDefinitionJson = az policy set-definition create --name $initname --display-name $initdisplayname --metadata $initmetadata --description $initdescription  --definitions $initdefinitionsfile --params $initparamsfile --definition-groups $initgroupfile
+# $policySetDefinitionJson = az policy set-definition create --name $initname --display-name $initdisplayname --metadata $initmetadata --description $initdescription  --definitions $initdefinitionsfile --params $initparamsfile --definition-groups $initgroupfile
+$policySetDefinitionJson = az policy set-definition create --name $initname --display-name $initdisplayname --description $initdescription  --definitions $initdefinitionsfile --params $initparamsfile --definition-groups $initgroupfile
 $policySetDefinitionJson | Out-File -Encoding utf8 $outputFilePath
 
 Write-Host "Policy set definition saved to $outputFilePath"
