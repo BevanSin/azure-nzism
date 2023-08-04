@@ -1,18 +1,24 @@
 # Define variables
+$repoRoot = Join-Path $PSScriptRoot '..\'
+
+# Construct the path to the 'json' folder
+$jsonPath = Join-Path $repoRoot 'json'
+$csvPath = Join-Path $repoRoot 'csv'
+
 $initname = "nzism-3.6-policyset" 
 $initdisplayname = "New Zealand ISM Restricted v3.6" 
 $initdescription = "This initiative includes policies that address a subset of New Zealand Information Security Manual v3.6 controls. Additional policies will be added in upcoming releases. For more information, visit https://aka.ms/nzism-initiative." 
-$initmetadata = "{`"category`":`"Regulatory Compliance`",`"version`":`"1.0`"}"
-$initdefinitionsfile = "C:\repos\azure-nzism\json\nzism3.6.definitions.json" 
-$initparamsfile = "C:\repos\azure-nzism\json\nzism3.6.parameters.json" 
-$initgroupfile = "C:\repos\azure-nzism\json\nzism3.6.groups.json" 
-$outputFilePath = "C:\repos\azure-nzism\json\nzism3.6.json" 
-$parametersFilePath = "C:\Repos\azure-nzism\csv\params.csv"
-$policyFilePath = "C:\Repos\azure-nzism\csv\policies.csv"
-$controlsFilePath = "C:\Repos\azure-nzism\csv\controls.csv"
+$initmetadata = "category=Regulatory Compliance","version=1.0"
+$initdefinitionsfile = Join-Path $jsonPath 'nzism3.6.definitions.json'
+$initparamsfile = Join-Path $jsonPath 'nzism3.6.parameters.json'
+$initgroupfile = Join-Path $jsonPath 'nzism3.6.groups.json'
+$outputFilePath = Join-Path $jsonPath 'nzism3.6.json'
+$parametersFilePath = Join-Path $csvPath 'params.csv'
+$policyFilePath = Join-Path $csvPath 'policies.csv'
+$controlsFilePath = Join-Path $csvPath 'controls.csv'
 
 # Check if the policies are already cached locally
-$cacheFilePath = "C:\Repos\azure-nzism\json\allpolicies.json"
+$cacheFilePath = Join-Path $jsonPath 'allpolicies.json'
 if (Test-Path -Path $cacheFilePath) {
     # If cached, read the policies from the local cache file
     $policyCache = Get-Content -Raw -Path $cacheFilePath | ConvertFrom-Json
@@ -144,7 +150,7 @@ foreach ($row in $csvData) {
             "name" = $row.name
             "category" = $row.category
             "displayName" = $row.displayName
-            "description" = $row.description
+            "description" = "$($row.description)  $($row.url)"
         }
         $policyControlsArray += $policyControls        
     }
@@ -153,7 +159,7 @@ foreach ($row in $csvData) {
             "name" = $row.name
             "category" = $row.category
             "displayName" = $row.displayName
-            "description" = $row.description
+            "description" = "$($row.description)  $($row.url)"
         }
         $policyControlsArray += $policyControls
     }
@@ -166,9 +172,7 @@ $jsonControlsOutput = ConvertTo-Json $policyControlsArray
 $jsonControlsOutput | Out-File -FilePath $initgroupfile -Encoding utf8
 
 # Convert policy set definition to JSON and output to file
-# $policySetDefinitionJson = az policy set-definition create --name $initname --display-name $initdisplayname --metadata $initmetadata --description $initdescription  --definitions $initdefinitionsfile --params $initparamsfile --definition-groups $initgroupfile
-# $policySetDefinitionJson = 
-az policy set-definition create --name $initname --display-name $initdisplayname --description $initdescription  --definitions $initdefinitionsfile --params $initparamsfile --definition-groups $initgroupfile
+$policySetDefinitionJson = az policy set-definition create --name $initname --display-name $initdisplayname --metadata $initmetadata --description $initdescription  --definitions $initdefinitionsfile --params $initparamsfile --definition-groups $initgroupfile
 $policySetDefinitionJson | Out-File -Encoding utf8 $outputFilePath
 
 Write-Host "Policy set definition saved to $outputFilePath"

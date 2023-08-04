@@ -1,23 +1,22 @@
 # azure-nzism
 Policy Initiative for the NZ ISM Restricted standard as published by the NCSC in New Zealand
 
-
 # Objectives
 
 Automate the production of the NZISM as much as possible
 
-**Plan**
-
-1. feed in CSV containing list of policies and associated control
-2. Metadata? - prob keep in separate pile - need to be able to update that from website
-3. Create initative pulling info from metadata, combining into single JSON
-4. Process to push updated version to Azure tenant\subscription or MG - document this process for people to use
-
 
 # Current process
 
-1. Dump Metadata to CSV from main spreadsheet - columns = name, category, displayName, description, url
+1. Dump Controls (Metadata) to CSV from main spreadsheet - columns = name, category, displayName, description, url
 2. Save CSV to %repo%\csv\controls.csv
+3. Edit the CSV to replace comma with | due to commas in the description fields
+4. Dump the params from current NZISM Policy Initiative to %repo%\csv\params.csv using the columns ParameterName|Type|DisplayName|Description|AllowedValues|DefaultValue  Ensure | separator used instead of comma.
+5. Dump the policies selected for this version from the main Spreadsheet to %repo%\csv\policies.csv using the columns policyDefinitionId,groupNames,parameters
+6. Add the parameters in using the names of the parameter in the parameters column of the policies.csv - i.e. cee51871-e572-4576-855c-047c820360f0,17.2.24.C.01.,minimumRSAKeySize-cee51871-e572-4576-855c-047c820360f0
+7. Delete the copy of allpolicies.json if it exists to ensure latest copy of policies cached when script is run
+8. Run the create-initiative.ps1 script from the repo - ensure root dir 
+
 3. Run createmetadata.ps1 which generates a controls.json in the json folder
 4. Dump policy guid and control ID to be included in the inititative into a CSV - columns = policy, groupname
 5. Save CSV to %repo%\csv\policies.csv
