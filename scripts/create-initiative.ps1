@@ -98,6 +98,10 @@ $policyDefinitionsArray = @()
 foreach ($row in $policies) {
     $policy = $policyCache | Where-Object { $_.PolicyDefinitionId -eq $row.policyDefinitionId }
 
+    If ($policy -match "deprecated") {
+        Write-Host "Policy deprecated: $($row.policyDefinitionId)" -ForegroundColor Yellow
+        Continue
+    }
     If ($null -eq $policy) {
         Write-Host "Policy not found: $($row.policyDefinitionId)"
         Continue
@@ -124,6 +128,9 @@ foreach ($row in $policies) {
     $policyDefinitionsArray += $policyDefinition
 }
 
+# Sort the array of policy definitions by groupNames
+$policyDefinitionsArray = $policyDefinitionsArray | Sort-Object { $_.groupNames -join ',' }
+
 # Convert the array of policy definitions to JSON format
 $jsonDefOutput = ConvertTo-Json $policyDefinitionsArray -Depth 100
 
@@ -149,7 +156,7 @@ foreach ($row in $csvData) {
         $policyControls = [ordered]@{
             "name" = $row.name
             "category" = $row.category
-            "displayName" = $row.displayName
+            "displayName" = "$($row.name) $($row.displayName)"
             "description" = "$($row.description)  $($row.url)"
         }
         $policyControlsArray += $policyControls        
@@ -158,7 +165,7 @@ foreach ($row in $csvData) {
         $policyControls = [ordered]@{
             "name" = $row.name
             "category" = $row.category
-            "displayName" = $row.displayName
+            "displayName" = "$($row.name) $($row.displayName)"
             "description" = "$($row.description)  $($row.url)"
         }
         $policyControlsArray += $policyControls

@@ -1385,6 +1385,11 @@
     "ResourceID": "/providers/Microsoft.Authorization/policyDefinitions/16f9b37c-4408-4c30-bc17-254958f2e2d6"
   },
   {
+    "PolicyDefinitionId": "16fabb5c-7379-4433-8009-042066fa3a16",
+    "PolicyReferenceId": "Exclude Usage Costs Resources",
+    "ResourceID": "/providers/Microsoft.Authorization/policyDefinitions/16fabb5c-7379-4433-8009-042066fa3a16"
+  },
+  {
     "PolicyDefinitionId": "16feeb31-6377-437e-bbab-d7f73911896d",
     "PolicyReferenceId": "Microsoft Managed Control 1103 - Audit Events",
     "ResourceID": "/providers/Microsoft.Authorization/policyDefinitions/16feeb31-6377-437e-bbab-d7f73911896d"
@@ -1408,6 +1413,11 @@
     "PolicyDefinitionId": "17641f70-94cd-4a5d-a613-3d1143e20e34",
     "PolicyReferenceId": "Microsoft Managed Control 1349 - Identification And Authentication (Non-Organizational Users) | Use Of Ficam-Approved Products",
     "ResourceID": "/providers/Microsoft.Authorization/policyDefinitions/17641f70-94cd-4a5d-a613-3d1143e20e34"
+  },
+  {
+    "PolicyDefinitionId": "176b7c36-ac64-4f15-a296-50bd7fafab12",
+    "PolicyReferenceId": "Do Not Allow M365 resources",
+    "ResourceID": "/providers/Microsoft.Authorization/policyDefinitions/176b7c36-ac64-4f15-a296-50bd7fafab12"
   },
   {
     "PolicyDefinitionId": "17763ad9-70c0-4794-9397-53d765932634",
@@ -2545,6 +2555,11 @@
     "ResourceID": "/providers/Microsoft.Authorization/policyDefinitions/2cc2c3b5-c2f8-45aa-a9e6-f90d85ae8352"
   },
   {
+    "PolicyDefinitionId": "2cc2e023-0dac-4046-875b-178f683929d5",
+    "PolicyReferenceId": "Azure Kubernetes Service Clusters should enable workload identity",
+    "ResourceID": "/providers/Microsoft.Authorization/policyDefinitions/2cc2e023-0dac-4046-875b-178f683929d5"
+  },
+  {
     "PolicyDefinitionId": "2cc9c165-46bd-9762-5739-d2aae5ba90a1",
     "PolicyReferenceId": "Automate account management",
     "ResourceID": "/providers/Microsoft.Authorization/policyDefinitions/2cc9c165-46bd-9762-5739-d2aae5ba90a1"
@@ -2908,6 +2923,11 @@
     "PolicyDefinitionId": "333b4ada-4a02-0648-3d4d-d812974f1bb2",
     "PolicyReferenceId": "Govern and monitor audit processing activities",
     "ResourceID": "/providers/Microsoft.Authorization/policyDefinitions/333b4ada-4a02-0648-3d4d-d812974f1bb2"
+  },
+  {
+    "PolicyDefinitionId": "335d919a-dc24-4a94-b7cb-9f81b1a8156f",
+    "PolicyReferenceId": "Do Not Allow MCPP resources",
+    "ResourceID": "/providers/Microsoft.Authorization/policyDefinitions/335d919a-dc24-4a94-b7cb-9f81b1a8156f"
   },
   {
     "PolicyDefinitionId": "33602e78-35e3-4f06-17fb-13dd887448e4",
@@ -3788,6 +3808,11 @@
     "PolicyDefinitionId": "4152937a-1a44-401a-a179-04b44ea15f4c",
     "PolicyReferenceId": "Microsoft Managed Control 1733 - Senior Information Security Officer",
     "ResourceID": "/providers/Microsoft.Authorization/policyDefinitions/4152937a-1a44-401a-a179-04b44ea15f4c"
+  },
+  {
+    "PolicyDefinitionId": "41ebf9df-66cb-48e9-a8d0-98afb4e150ce",
+    "PolicyReferenceId": "Configure diagnostic settings for container groups to Log Analytics workspace",
+    "ResourceID": "/providers/Microsoft.Authorization/policyDefinitions/41ebf9df-66cb-48e9-a8d0-98afb4e150ce"
   },
   {
     "PolicyDefinitionId": "420c1477-aa43-49d0-bd7e-c4abdd9addff",
@@ -7830,6 +7855,11 @@
     "ResourceID": "/providers/Microsoft.Authorization/policyDefinitions/8ac2748f-3bf1-4c02-a3b6-92ae68cf75b1"
   },
   {
+    "PolicyDefinitionId": "8ac833bd-f505-48d5-887e-c993a1d3eea0",
+    "PolicyReferenceId": "[Preview]: API endpoints in Azure API Management should be authenticated",
+    "ResourceID": "/providers/Microsoft.Authorization/policyDefinitions/8ac833bd-f505-48d5-887e-c993a1d3eea0"
+  },
+  {
     "PolicyDefinitionId": "8aec4343-9153-9641-172c-defb201f56b3",
     "PolicyReferenceId": "Review cloud identity report overview",
     "ResourceID": "/providers/Microsoft.Authorization/policyDefinitions/8aec4343-9153-9641-172c-defb201f56b3"
@@ -11245,6 +11275,11 @@
     "ResourceID": "/providers/Microsoft.Authorization/policyDefinitions/c8abcef9-fc26-482f-b8db-5fa60ee4586d"
   },
   {
+    "PolicyDefinitionId": "c8acafaf-3d23-44d1-9624-978ef0f8652c",
+    "PolicyReferenceId": "[Preview]: API endpoints that are unused should be disabled and removed from the Azure API Management service",
+    "ResourceID": "/providers/Microsoft.Authorization/policyDefinitions/c8acafaf-3d23-44d1-9624-978ef0f8652c"
+  },
+  {
     "PolicyDefinitionId": "c8cc2f85-e019-4065-9fa3-5e6a2b2dde56",
     "PolicyReferenceId": "Azure HDInsight should use private link",
     "ResourceID": "/providers/Microsoft.Authorization/policyDefinitions/c8cc2f85-e019-4065-9fa3-5e6a2b2dde56"
@@ -12478,6 +12513,11 @@
     "PolicyDefinitionId": "e12494fa-b81e-4080-af71-7dbacc2da0ec",
     "PolicyReferenceId": "Microsoft Managed Control 1714 - Software & Information Integrity | Automated Notifications Of Integrity Violations",
     "ResourceID": "/providers/Microsoft.Authorization/policyDefinitions/e12494fa-b81e-4080-af71-7dbacc2da0ec"
+  },
+  {
+    "PolicyDefinitionId": "e1352e44-d34d-4e4d-a22e-451a15f759a1",
+    "PolicyReferenceId": "Deploy Planned Maintenance to schedule and control upgrades for your Azure Kubernetes Service (AKS) cluster",
+    "ResourceID": "/providers/Microsoft.Authorization/policyDefinitions/e1352e44-d34d-4e4d-a22e-451a15f759a1"
   },
   {
     "PolicyDefinitionId": "e1379836-3492-6395-451d-2f5062e14136",

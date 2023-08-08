@@ -15,7 +15,7 @@ Automate the production of the NZISM as much as possible
 5. Dump the policies selected for this version from the main Spreadsheet to %repo%\csv\policies.csv using the columns policyDefinitionId,groupNames,parameters
 6. Add the parameters in using the names of the parameter in the parameters column of the policies.csv - i.e. cee51871-e572-4576-855c-047c820360f0,17.2.24.C.01.,minimumRSAKeySize-cee51871-e572-4576-855c-047c820360f0
 7. Delete the copy of allpolicies.json if it exists to ensure latest copy of policies cached when script is run
-8. Run the create-initiative.ps1 script from the repo - ensure root dir 
+8. Run the create-initiative.ps1 script from the repo - 
 
 3. Run createmetadata.ps1 which generates a controls.json in the json folder
 4. Dump policy guid and control ID to be included in the inititative into a CSV - columns = policy, groupname

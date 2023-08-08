@@ -1,8 +1,15 @@
 # Connect to your Azure account
 Connect-AzAccount
 
+# Define variables
+$repoRoot = Join-Path $PSScriptRoot '..\'
+
+# Construct the path to the 'json' folder
+$jsonPath = Join-Path $repoRoot 'json'
+$csvPath = Join-Path $repoRoot 'csv'
+
 # Set the variables
-$outputFile = "C:\Repos\azure-nzism\csv\allpolicyoutput.csv"
+$outputFile = Join-Path $csvPath 'allpolicyoutput.csv'
 
 # Get all policies
 $policys = Get-AzPolicyDefinition | Select-Object Name,ResourceId -ExpandProperty Properties

@@ -12,6 +12,14 @@
     ],
     "defaultValue": 3072
   },
+  "requiredRetentionDays": {
+    "type": "String",
+    "metadata": {
+      "description": "",
+      "displayName": "Required retention period (days) for resource logs"
+    },
+    "defaultValue": "365"
+  },
   "labelSelector": {
     "type": "Object",
     "metadata": {
@@ -32,13 +40,5 @@
       4096
     ],
     "defaultValue": 3072
-  },
-  "requiredRetentionDays": {
-    "type": "String",
-    "metadata": {
-      "description": "",
-      "displayName": "Required retention period (days) for resource logs"
-    },
-    "defaultValue": "365"
   }
 }
