@@ -1,3 +1,9 @@
+Deploy using az command line
+
+
+
+
+
 1. Prerequisites:
    - Ensure you have an Azure DevOps project set up.
    - Make sure you have an Azure subscription where you want to deploy the policy initiative.
@@ -11,6 +17,15 @@ Create a new project in Azure DevOps
 Project Name = EPAC
 Click Create
 
+Create a new repo
+Click on Project Settings and Repositories
+Click + Create
+Leave type as Git and set name to epacforkrepo
+Click Create
+Click the Repos link on the left
+Click on epacforkrepo in the top dropdown list
+Click on the Import button under Import a Repository and copy the URL https://github.com/Azure/enterprise-azure-policy-as-code into the Clone URL field
+Click Import
 
 
 
