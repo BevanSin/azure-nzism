@@ -549,7 +549,10 @@
     "parameters": {
       "labelSelector": {
         "value": "[parameters('labelSelector')]"
-      }
+      },
+      "effect": {
+        "value": "[parameters('auditonly-ulc')]"
+      }      
     },
     "groupNames": [
       "14.1.9.C.01."
@@ -609,7 +612,10 @@
     "parameters": {
       "labelSelector": {
         "value": "[parameters('labelSelector')]"
-      }
+      },
+      "effect": {
+        "value": "[parameters('auditonly-ulc')]"
+      }  
     },
     "groupNames": [
       "14.1.9.C.01."
@@ -1066,7 +1072,11 @@
   {
     "policyDefinitionReferenceId": "Azure Cosmos DB accounts should have firewall rules_1",
     "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/862e97cf-49fc-4a5c-9de4-40d4e2e7c8eb",
-    "parameters": {},
+    "parameters": {
+      "effect": {
+        "value": "[parameters('auditonly-three')]"
+      }
+    },
     "groupNames": [
       "18.1.13.C.02."
     ]
@@ -1213,14 +1223,6 @@
     "parameters": {},
     "groupNames": [
       "23.3.19.C.01."
-    ]
-  },
-  {
-    "policyDefinitionReferenceId": "Require encryption on Data Lake Store accounts_1",
-    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/a7ff3161-0087-490a-9ad9-ad6217f4f43a",
-    "parameters": {},
-    "groupNames": [
-      "23.4.9.C.01."
     ]
   },
   {
