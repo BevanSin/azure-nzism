@@ -40,7 +40,7 @@ Connect-AzAccount
 if ($PSCmdlet.ParameterSetName -eq "ManagementGroup") {
     # Run command for management group
     Write-Host "Running command for management group with ID: $ManagementGroupId"
-    az policy set-definition create --name $initname --display-name $initdisplayname --metadata $initmetadata --description $initdescription  --definitions $initdefinitionsfile --params $initparamsfile --definition-groups $initgroupfile --management-group $ManagementGroup
+    az policy set-definition create --name $initname --display-name $initdisplayname --metadata $initmetadata --description $initdescription  --definitions $initdefinitionsfile --params $initparamsfile --definition-groups $initgroupfile --management-group $ManagementGroupId
 }
 elseif ($PSCmdlet.ParameterSetName -eq "Subscription") {
     # Run command for subscription
