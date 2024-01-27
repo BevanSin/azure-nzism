@@ -1,0 +1,21 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Azure/enterprise-azure-policy-as-code/main/Schemas/policy-assignment-schema.json",
+  "nodeName": "/root",
+  "definitionEntry": {
+    "policySetName": "nzism-3.6-policyset",
+    "displayName": "New Zealand ISM Restricted v3.6"
+  },
+  "assignment": {
+    "name": "fb639608f576449f8d4a0a9e",
+    "displayName": "New Zealand ISM Restricted v3.6",
+    "description": "New Zealand ISM Restricted v3.6"
+  },
+
+  "overrides": [],
+  "resourceSelectors": [],
+  "scope": {
+    "tenant1": [ // Replace with your EPAC environment name and validate the management group listed below exists
+        "/providers/Microsoft.Management/managementGroups/connectivity"
+    ]
+  }
+}
