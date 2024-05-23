@@ -25,9 +25,9 @@ if ($PSCmdlet.ParameterSetName -eq "Subscription" -and $ManagementGroup) {
     exit 1
 }
 
-$initname = "nzism-3.6-policyset" 
-$initdisplayname = "New Zealand ISM Restricted v3.6" 
-$initdescription = "This initiative includes policies that address a subset of New Zealand Information Security Manual v3.6 controls. Additional policies will be added in upcoming releases. For more information, visit https://aka.ms/nzism-initiative." 
+$initname = "nzism-3.7-policyset" 
+$initdisplayname = "New Zealand ISM Restricted v3.7" 
+$initdescription = "This initiative includes policies that address a subset of New Zealand Information Security Manual v3.7 controls. Additional policies will be added in upcoming releases. For more information, visit https://aka.ms/nzism-initiative." 
 $initmetadata = "category=Regulatory Compliance","version=1.1"
 $initdefinitionsfile = 'azurepolicyset.definitions.json'
 $initparamsfile = 'azurepolicyset.parameters.json'

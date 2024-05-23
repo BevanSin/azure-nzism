@@ -12,7 +12,7 @@ $csvPath = Join-Path $repoRoot 'csv'
 $outputFile = Join-Path $csvPath 'allpolicyoutput.csv'
 
 # Get all policies
-$policys = Get-AzPolicyDefinition | Select-Object Name,ResourceId -ExpandProperty Properties
+$policys = Get-AzPolicyDefinition | Select-Object Name,Id,DisplayName,Description,Version,Metadata
 
 # Create an array to store the results
 $results = @()
@@ -37,7 +37,7 @@ foreach ($policy in $policys) {
     $result."Description" = $policy.Description
     $result."Category" = $policy.Metadata.category
     $result."Version" = $policy.Metadata.version
-    $result."ResourceID" = $policy.ResourceId
+    $result."ResourceID" = $policy.Id
     $objRecord = New-Object PSObject -property $Result
     $results += $objRecord
 }

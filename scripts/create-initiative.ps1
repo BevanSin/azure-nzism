@@ -1,5 +1,6 @@
 # Define variables
 $repoRoot = Join-Path $PSScriptRoot '..\'
+# $repoRoot = "C:\Repos\azure-nzism\"
 
 # Construct the path to the 'json' folder
 $jsonPath = Join-Path $repoRoot 'json'
@@ -24,7 +25,7 @@ if (Test-Path -Path $cacheFilePath) {
     $policyCache = Get-Content -Raw -Path $cacheFilePath | ConvertFrom-Json
 } else {
     # If not cached, get all policies from Azure and cache them locally
-    $policyCache = Get-AzPolicyDefinition | ForEach-Object { [PSCustomObject]@{ PolicyDefinitionId = $_.Name; PolicyReferenceId = $_.Properties.DisplayName; ResourceID = $_.ResourceID } }
+    $policyCache = Get-AzPolicyDefinition | ForEach-Object { [PSCustomObject]@{ PolicyDefinitionId = $_.Name; PolicyReferenceId = $_.DisplayName; ResourceID = "/providers/Microsoft.Authorization/policyDefinitions/$($_.Name)" } }
     $policyCache | ConvertTo-Json | Out-File -FilePath $cacheFilePath -Encoding UTF8
 }
 
