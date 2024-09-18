@@ -1,6 +1,6 @@
 {
   "description": "This initiative includes policies that address a subset of New Zealand Information Security Manual v3.7 controls. Additional policies will be added in upcoming releases. For more information, visit https://aka.ms/nzism-initiative.",
-  "displayName": "New Zealand ISM Restricted v3.7",
+  "displayName": "[Deprecated] New Zealand ISM Restricted v3.7",
   "id": "/subscriptions/85adcf7e-671a-4072-8e0e-951d6d6b4e92/providers/Microsoft.Authorization/policySetDefinitions/nzism-3.7-policyset",
   "metadata": {
     "category": "Regulatory Compliance",
@@ -8,7 +8,7 @@
     "createdOn": "2024-05-23T20:56:10.342045Z",
     "updatedBy": "d44efe22-0120-4573-8da0-be9caf4457fb",
     "updatedOn": "2024-05-23T21:43:42.8690375Z",
-    "version": "1.0"
+    "version": "1.0-deprecated"
   },
   "name": "nzism-3.7-policyset",
   "parameters": {

@@ -1,5 +1,0 @@
-ParameterName|Type|DisplayName|Description|AllowedValues|DefaultValue
-labelSelector|Object|Kubernetes label selector for resources included for evaluation of Kubernetes cluster policies in this initiative|Label query to select Kubernetes resources to include for policy evaluation; an empty label selector will result in policies evaluated on all Kubernetes resources||
-minimumRSAKeySize-cee51871-e572-4576-855c-047c820360f0|Integer|Minimum RSA key size|The minimum key size for RSA certificates.|2048;3072;4096|3072
-minimumRSAKeySize-82067dbb-e53b-4e06-b631-546d197452d9|Integer|Minimum RSA key size|The minimum key size for RSA certificates.|2048;3072;4096|3072
-requiredRetentionDays|String|Required retention period (days) for resource logs|||365

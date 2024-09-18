@@ -8,8 +8,8 @@ $csvPath = Join-Path $repoRoot 'csv'
 
 $initname = "nzism-3.7-policyset" 
 $initdisplayname = "New Zealand ISM Restricted v3.7" 
-$initdescription = "This initiative includes policies that address a subset of New Zealand Information Security Manual v3.7 controls. Additional policies will be added in upcoming releases. For more information, visit https://aka.ms/nzism-initiative." 
-$initmetadata = "category=Regulatory Compliance","version=1.0"
+$initdescription = "[Deprecated] This initiative includes policies that address a subset of New Zealand Information Security Manual v3.7 controls. Additional policies will be added in upcoming releases. For more information, visit https://aka.ms/nzism-initiative." 
+$initmetadata = "category=Regulatory Compliance","version=1.0-deprecated"
 $initdefinitionsfile = Join-Path $jsonPath 'nzism3.7.definitions.json'
 $initparamsfile = Join-Path $jsonPath 'nzism3.7.parameters.json'
 $initgroupfile = Join-Path $jsonPath 'nzism3.7.groups.json'
